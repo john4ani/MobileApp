@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +17,16 @@ namespace MobileApp
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            Message.Text = "Load some items..";
+
+            MobileServiceClient client = new MobileServiceClient("https://mobileappbackendion.azurewebsites.net/");
+            var items = await client.GetTable<TodoItem>().ReadAsync();
+            var item = items.First();
+            Message.Text = item.Text;
         }
     }
 }

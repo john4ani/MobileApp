@@ -6,11 +6,12 @@
              mc:Ignorable="d"
              x:Class="MobileApp.MainPage">
 
-    <StackLayout>
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label x:Name="Message" Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <Button Text="Load an item" Clicked="Button_Clicked"></Button>
     </StackLayout>
 
 </ContentPage>
