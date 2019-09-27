@@ -160,11 +160,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\StartUp.AutoMapper.cs" />
     <Compile Include="App_Start\Startup.MobileApp.cs" />
-    <Compile Include="Controllers\TodoItemController.cs" />
+    <Compile Include="Controllers\QueryController.cs" />
+    <Compile Include="Controllers\QueryReplayController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DataObjects\TodoItem.cs" />
+    <Compile Include="DataObjects\Query.cs" />
+    <Compile Include="Migrations\201909271325303_QueryReplay.cs" />
+    <Compile Include="Migrations\201909271325303_QueryReplay.Designer.cs">
+      <DependentUpon>201909271325303_QueryReplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QueryDBEntity.cs" />
+    <Compile Include="DataObjects\QueryReplay.cs" />
+    <Compile Include="Migrations\201909271123253_Auction.cs" />
+    <Compile Include="Migrations\201909271123253_Auction.Designer.cs">
+      <DependentUpon>201909271123253_Auction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
+    <Compile Include="Models\QueryDomainManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -183,6 +197,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\MobileAppBackendIon - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909271123253_Auction.resx">
+      <DependentUpon>201909271123253_Auction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909271325303_QueryReplay.resx">
+      <DependentUpon>201909271325303_QueryReplay.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

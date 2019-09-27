@@ -26,13 +26,15 @@ namespace MobileApp.Backend.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
+        public System.Data.Entity.DbSet<MobileApp.Backend.DataObjects.Query> Queries { get; set; }
+
+        public System.Data.Entity.DbSet<MobileApp.Backend.DataObjects.QueryReplay> QueryReplays { get; set; }
     }
 }

@@ -23,10 +23,10 @@ namespace MobileApp
         {
             Message.Text = "Load some items..";
 
-            MobileServiceClient client = new MobileServiceClient("https://mobileappbackendion.azurewebsites.net/");
-            var items = await client.GetTable<TodoItem>().ReadAsync();
-            var item = items.First();
-            Message.Text = item.Text;
+            //MobileServiceClient client = new MobileServiceClient("https://mobileappbackendion.azurewebsites.net/");
+            //var items = await client.GetTable<TodoItem>().ReadAsync();
+            //var item = items.First();
+            //Message.Text = item.Text;
         }
     }
 }
