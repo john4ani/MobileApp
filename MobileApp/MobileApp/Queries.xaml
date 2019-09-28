@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:beh="clr-namespace:MobileApp.Behaviors;assembly=MobileApp"
+             x:Class="MobileApp.Queries">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <beh:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+
+    <TabbedPage.Children>
+        <ContentPage Title="My Queries">
+
+            <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                <ActivityIndicator  HorizontalOptions="CenterAndExpand">
+                    <ActivityIndicator.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS,Android" Value="false" />
+                            <On Platform="WinPhone,Windows" Value="{Binding IsLoading}" />
+                        </OnPlatform>
+                    </ActivityIndicator.IsVisible>
+                    <ActivityIndicator.IsRunning>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS,Android" Value="false" />
+                            <On Platform="WinPhone,Windows" Value="{Binding IsLoading}" />
+                        </OnPlatform>
+                    </ActivityIndicator.IsRunning>
+                </ActivityIndicator>
+                <ListView ItemsSource="{Binding MyQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshAuctions}" IsRefreshing="{Binding IsLoading}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Behaviors>
+                        <beh:ListViewSelectedItemBehavior Command="{Binding SelectAuction}" Converter="{StaticResource SelectedItemConverter}" />
+                    </ListView.Behaviors>
+                </ListView>
+            </StackLayout>
+        </ContentPage>        
+    </TabbedPage.Children>
+</TabbedPage>

@@ -1,8 +1,9 @@
 ﻿namespace MobileApp.Models
 {
-    public class QueryReplay
+    public class SubmittedQueryOffer
     {
-        public string QueryId { get; set; }
+        public string Id { get; set; }
+        public string SubmittedQueryId { get; set; }
         public string Bidder { get; set; }
         public string Description { get; set; }
         public double OfferPrice { get; set; }     

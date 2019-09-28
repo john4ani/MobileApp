@@ -1,16 +1,28 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace MobileApp
 {
     public partial class App : Application
     {
+        private static QueringService _service;
+        static App()
+        {
+            _service = new QueringService("https://mobileappbackendion.azurewebsites.net/");
+        }
         public App()
         {
             InitializeComponent();
+            var userProfileCreated = true;
 
-            MainPage = new MainPage();
+            if (!userProfileCreated)
+                MainPage = new MainPage();
+            else
+                MainPage = new NavigationPage(new Queries());
+        }
+
+        public static QueringService GetQueringService()
+        {
+            return _service;
         }
 
         protected override void OnStart()

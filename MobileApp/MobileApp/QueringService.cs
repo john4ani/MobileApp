@@ -13,17 +13,30 @@ namespace MobileApp
             _azClient = new MobileServiceClient(serviceBaseUrl);
         }
 
-        public async Task<IEnumerable<Query>> GetQueries()
+        public async Task<IEnumerable<ReceivedQuery>> GetReceivedQueries()
         {
-            var table = _azClient.GetTable<Query>();
+            var table = _azClient.GetTable<ReceivedQuery>();
             return await table.ReadAsync();
         }
 
-        public async Task<IEnumerable<QueryReplay>> GetQueryReplays(string queryId)
+        public async Task<IEnumerable<SubmittedQuery>> GetSubmittedQueries()
         {
-            var table = _azClient.GetTable<QueryReplay>();
-            var query = table.Where(qr=>qr.QueryId == queryId);
+            var table = _azClient.GetTable<SubmittedQuery>();
+            return await table.ReadAsync();
+        }
+
+        public async Task<IEnumerable<SubmittedQueryOffer>> GetSubmittedQueryOffers(string submittedQueryId)
+        {
+            var table = _azClient.GetTable<SubmittedQueryOffer>();
+            var query = table.Where(qr=>qr.SubmittedQueryId == submittedQueryId);
             return await table.ReadAsync(query);
+        }
+
+        public async Task<SubmittedQueryOffer> MakeSubmittedQueryOffer(SubmittedQueryOffer offer)
+        {
+            var table = _azClient.GetTable<SubmittedQueryOffer>();
+            await table.InsertAsync(offer);
+            return offer;
         }
     }
 }

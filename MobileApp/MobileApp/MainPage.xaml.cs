@@ -1,10 +1,5 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MobileApp
@@ -21,7 +16,7 @@ namespace MobileApp
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            Message.Text = "Load some items..";
+            Message.Text = "Create a profile";
 
             //MobileServiceClient client = new MobileServiceClient("https://mobileappbackendion.azurewebsites.net/");
             //var items = await client.GetTable<TodoItem>().ReadAsync();
