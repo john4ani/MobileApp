@@ -8,16 +8,16 @@ namespace MobileApp.ViewModels
     public class ReceivedOfferTakeActionViewModel
     : ViewModelBase, INotifyPropertyChanged
     {
-        private SubmittedQueryOffer _offer;
+        private QueryOffer _offer;
 
-        public ReceivedOfferTakeActionViewModel(SubmittedQueryOffer offer, INavigation navigation) : base(navigation)
+        public ReceivedOfferTakeActionViewModel(QueryOffer offer, INavigation navigation) : base(navigation)
         {
             _offer = offer;
             AcceptOfferCommand = new Command<Offer>(ExecuteAcceptOffer, CanExecuteAcceptOffer);
         }       
 
 
-        public SubmittedQueryOffer Offer
+        public QueryOffer Offer
         {
             get { return _offer; }
             set

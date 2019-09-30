@@ -11,8 +11,8 @@ namespace MobileApp.ViewModels
 
         public QueriesViewModel(INavigation navigation) : base(navigation)
         {
-            SelectReceivedQuery = new Command<ReceivedQuery>(GoToMakeOfferForReceivedQuery);
-            SelectSubmittedQuery = new Command<SubmittedQuery>(GoToSubmittedQueryOffers);
+            SelectReceivedQuery = new Command<Query>(GoToMakeOfferForReceivedQuery);
+            SelectSubmittedQuery = new Command<Query>(GoToSubmittedQueryOffers);
             
             RefreshSubmittedQueries = new Command(LoadSubmittedQueries);
             RefreshReceivedQueries = new Command(LoadReceivedQueries);
@@ -26,7 +26,7 @@ namespace MobileApp.ViewModels
             private set;
         }
 
-        public void GoToMakeOfferForReceivedQuery(ReceivedQuery query)
+        public void GoToMakeOfferForReceivedQuery(Query query)
         {
             Navigation.PushAsync(
                 new MakeOfferForReceivedQuery(query));
@@ -38,34 +38,14 @@ namespace MobileApp.ViewModels
             private set;
         }
 
-        public void GoToSubmittedQueryOffers(SubmittedQuery query)
+        public void GoToSubmittedQueryOffers(Query query)
         {
             Navigation.PushAsync(
                 new SubmittedQueryOffers(query));
         }
 
-        //// command and delegate to move to make offer
-        //public ICommand MakeOffer
-        //{
-        //    get; private set;
-
-        //}
-
-        //public void MakeOfferForQuery(ReceivedQuery item)
-        //{
-        //    var targetItem = new Query
-        //    {
-        //        Id = item.Id,
-        //        Name = item.Name,
-        //        Description = item.Description,
-        //        CurrentBid = item.CurrentBid
-        //    };
-
-        //    Navigation.PushAsync(new PlaceBid(targetItem));
-        //}
-
-        private ObservableCollection<SubmittedQuery> _submittedQueries;
-        public ObservableCollection<SubmittedQuery> SubmittedQueries
+        private ObservableCollection<Query> _submittedQueries;
+        public ObservableCollection<Query> SubmittedQueries
         {
             get { return _submittedQueries; }
             set {
@@ -74,8 +54,8 @@ namespace MobileApp.ViewModels
             }
         }
 
-        private ObservableCollection<ReceivedQuery> _receivedQueries;
-        public ObservableCollection<ReceivedQuery> ReceivedQueries
+        private ObservableCollection<Query> _receivedQueries;
+        public ObservableCollection<Query> ReceivedQueries
         {
             get { return _receivedQueries; }
             set
@@ -104,7 +84,7 @@ namespace MobileApp.ViewModels
             try
             {
                 var itemsResult = await App.GetQueringService().GetSubmittedQueries();
-                SubmittedQueries = new ObservableCollection<SubmittedQuery>(itemsResult);
+                SubmittedQueries = new ObservableCollection<Query>(itemsResult);
             }
             catch (Exception ex)
             {
@@ -127,7 +107,7 @@ namespace MobileApp.ViewModels
             try
             {
                 var itemsResult = await App.GetQueringService().GetReceivedQueries();
-                ReceivedQueries = new ObservableCollection<ReceivedQuery>(itemsResult);
+                ReceivedQueries = new ObservableCollection<Query>(itemsResult);
             }
             catch (Exception ex)
             {

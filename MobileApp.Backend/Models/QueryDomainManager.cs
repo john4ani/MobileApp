@@ -35,7 +35,7 @@ namespace MobileApp.Backend.Models
                            Category = ai.Category
                            
                        };
-            return new System.Web.Http.SingleResult<Query>(item);
+            return new SingleResult<Query>(item);
 
         }
 

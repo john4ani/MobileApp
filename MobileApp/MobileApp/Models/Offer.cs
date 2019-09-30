@@ -7,7 +7,7 @@ namespace MobileApp.Models
     public class Offer
     {
         public string Id { get; set; }
-        public string AuctionItemId { get; set; }
-        public double BidAmount { get; set; }
+        public string QueryId { get; set; }
+        public double Price { get; set; }
     }
 }

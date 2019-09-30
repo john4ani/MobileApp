@@ -33,8 +33,8 @@ namespace MobileApp.Backend.Models
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
 
-        public System.Data.Entity.DbSet<MobileApp.Backend.DataObjects.Query> Queries { get; set; }
+        public DbSet<Query> Queries { get; set; }
 
-        public System.Data.Entity.DbSet<MobileApp.Backend.DataObjects.QueryReplay> QueryReplays { get; set; }
+        public DbSet<QueryOffer> QueryOffers { get; set; }
     }
 }

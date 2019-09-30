@@ -8,7 +8,7 @@ namespace MobileApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MakeOfferForReceivedQuery : TabbedPage
     {
-        public MakeOfferForReceivedQuery(ReceivedQuery query)
+        public MakeOfferForReceivedQuery(Query query)
         {
             InitializeComponent();
             this.BindingContext = new MakeOfferForReceivedQueryViewModel(query, Navigation);

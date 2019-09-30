@@ -8,9 +8,9 @@ namespace MobileApp.ViewModels
     public class MakeOfferForReceivedQueryViewModel
     : ViewModelBase, INotifyPropertyChanged
     {
-        private ReceivedQuery _receivedQuery;
+        private Query _receivedQuery;
 
-        public MakeOfferForReceivedQueryViewModel(ReceivedQuery item, INavigation navigation) : base(navigation)
+        public MakeOfferForReceivedQueryViewModel(Query item, INavigation navigation) : base(navigation)
         {
             _receivedQuery = item;
             Price = 0;
@@ -33,7 +33,7 @@ namespace MobileApp.ViewModels
         }
 
 
-        public ReceivedQuery ReceivedQuery
+        public Query ReceivedQuery
         {
             get { return _receivedQuery; }
             set
@@ -49,7 +49,7 @@ namespace MobileApp.ViewModels
         {
 
             var newBid = await App.GetQueringService().MakeSubmittedQueryOffer(
-                new SubmittedQueryOffer{ SubmittedQueryId = _receivedQuery.Id, OfferPrice = Price });
+                new QueryOffer{ QueryId = _receivedQuery.Id, OfferPrice = Price });
 
             MessagingCenter.Send(this, Constants.MSG_ITEMUPDATED, ReceivedQuery);
 

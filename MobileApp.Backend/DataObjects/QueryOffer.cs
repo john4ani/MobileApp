@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MobileApp.Backend.DataObjects
 {
-    public class QueryReplay : EntityData
+    public class QueryOffer : EntityData
     {
         public string Bidder { get; set; }
         public string Description { get; set; }

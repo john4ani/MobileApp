@@ -9,14 +9,14 @@ namespace MobileApp.ViewModels
 {
     public class SubmittedQueryOffersViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private SubmittedQuery _submittedQuery;
-        private ObservableCollection<SubmittedQueryOffer> _offers;
+        private Query _submittedQuery;
+        private ObservableCollection<QueryOffer> _offers;
 
-        public SubmittedQueryOffersViewModel(SubmittedQuery submittedQuery, INavigation navigation) : base(navigation)
+        public SubmittedQueryOffersViewModel(Query submittedQuery, INavigation navigation) : base(navigation)
         {
             _submittedQuery = submittedQuery;
-            TakeActionOnReceivedOffer = new Command<SubmittedQueryOffer>(ActionOnReceivedOffer);
-            MessagingCenter.Subscribe<SubmittedQueryOffersViewModel, SubmittedQueryOffer>(this, Constants.MSG_ITEMUPDATED, ItemUpdated);
+            TakeActionOnReceivedOffer = new Command<QueryOffer>(ActionOnReceivedOffer);
+            MessagingCenter.Subscribe<SubmittedQueryOffersViewModel, QueryOffer>(this, Constants.MSG_ITEMUPDATED, ItemUpdated);
         }
 
         public ICommand TakeActionOnReceivedOffer
@@ -25,13 +25,13 @@ namespace MobileApp.ViewModels
             private set;
         }
 
-        public void ActionOnReceivedOffer(SubmittedQueryOffer item)
+        public void ActionOnReceivedOffer(QueryOffer item)
         {
             Navigation.PushAsync(
                 new ReceivedOfferTakeAction(item));
         }
 
-        public void ItemUpdated(SubmittedQueryOffersViewModel model, SubmittedQueryOffer item)
+        public void ItemUpdated(SubmittedQueryOffersViewModel model, QueryOffer item)
         {
             if (Items != null)
             {
@@ -39,7 +39,7 @@ namespace MobileApp.ViewModels
                 targetItem.OfferPrice = item.OfferPrice;
             }
         }
-        public ObservableCollection<SubmittedQueryOffer> Items
+        public ObservableCollection<QueryOffer> Items
         {
             get { return _offers; }
             set
@@ -62,7 +62,7 @@ namespace MobileApp.ViewModels
                 {
                     if (ait.Exception == null)
                     {
-                        Items = new ObservableCollection<SubmittedQueryOffer>(ait.Result);
+                        Items = new ObservableCollection<QueryOffer>(ait.Result);
                     }
                     else
                     {

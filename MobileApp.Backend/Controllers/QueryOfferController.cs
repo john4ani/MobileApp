@@ -9,42 +9,42 @@ using MobileApp.Backend.Models;
 
 namespace MobileApp.Backend.Controllers
 {
-    public class QueryReplayController : TableController<QueryReplay>
+    public class QueryOfferController : TableController<QueryOffer>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             MobileServiceContext context = new MobileServiceContext();
-            DomainManager = new EntityDomainManager<QueryReplay>(context, Request);
+            DomainManager = new EntityDomainManager<QueryOffer>(context, Request);
         }
 
-        // GET tables/QueryReplay
-        public IQueryable<QueryReplay> GetAllQueryReplay()
+        // GET tables/QueryOffer
+        public IQueryable<QueryOffer> GetAllOffers()
         {
             return Query(); 
         }
 
-        // GET tables/QueryReplay/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<QueryReplay> GetQueryReplay(string id)
+        // GET tables/QueryOffer/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public SingleResult<QueryOffer> GetQueryOffer(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/QueryReplay/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<QueryReplay> PatchQueryReplay(string id, Delta<QueryReplay> patch)
+        // PATCH tables/QueryOffer/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task<QueryOffer> PatchQueryOffer(string id, Delta<QueryOffer> patch)
         {
              return UpdateAsync(id, patch);
         }
 
-        // POST tables/QueryReplay
-        public async Task<IHttpActionResult> PostQueryReplay(QueryReplay item)
+        // POST tables/QueryOffer
+        public async Task<IHttpActionResult> PostQueryOffer(QueryOffer item)
         {
-            QueryReplay current = await InsertAsync(item);
+            QueryOffer current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/QueryReplay/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task DeleteQueryReplay(string id)
+        // DELETE tables/QueryOffer/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task DeleteQueryOffer(string id)
         {
              return DeleteAsync(id);
         }

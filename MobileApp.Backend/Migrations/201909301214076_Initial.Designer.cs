@@ -7,13 +7,13 @@ namespace MobileApp.Backend.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class QueryReplay : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(QueryReplay));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201909271325303_QueryReplay"; }
+            get { return "201909301214076_Initial"; }
         }
         
         string IMigrationMetadata.Source

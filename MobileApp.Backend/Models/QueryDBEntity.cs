@@ -11,6 +11,6 @@ namespace MobileApp.Backend.Models
         public string Description { get; set; }
         public DateTime EventDate { get; set; }
 
-        public virtual Collection<QueryReplay> Bids { get; set; }
+        public virtual Collection<QueryOffer> QueryOffers { get; set; }
     }
 }

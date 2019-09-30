@@ -13,28 +13,30 @@ namespace MobileApp
             _azClient = new MobileServiceClient(serviceBaseUrl);
         }
 
-        public async Task<IEnumerable<ReceivedQuery>> GetReceivedQueries()
+        public async Task<IEnumerable<Query>> GetReceivedQueries()
         {
-            var table = _azClient.GetTable<ReceivedQuery>();
+            var table = _azClient.GetTable<Query>();
+            //#TODO var query = table.Where(qr=>qr.Category == "Subscribed Category" && "Distance from Client to business < client serch radius");
             return await table.ReadAsync();
         }
 
-        public async Task<IEnumerable<SubmittedQuery>> GetSubmittedQueries()
+        public async Task<IEnumerable<Query>> GetSubmittedQueries()
         {
-            var table = _azClient.GetTable<SubmittedQuery>();
+            var table = _azClient.GetTable<Query>();
+            //#TODO var query = table.Where(qr=>qr.UserId == "Logged in user id");
             return await table.ReadAsync();
         }
 
-        public async Task<IEnumerable<SubmittedQueryOffer>> GetSubmittedQueryOffers(string submittedQueryId)
+        public async Task<IEnumerable<QueryOffer>> GetSubmittedQueryOffers(string submittedQueryId)
         {
-            var table = _azClient.GetTable<SubmittedQueryOffer>();
-            var query = table.Where(qr=>qr.SubmittedQueryId == submittedQueryId);
+            var table = _azClient.GetTable<QueryOffer>();
+            var query = table.Where(qr=>qr.QueryId == submittedQueryId);
             return await table.ReadAsync(query);
         }
 
-        public async Task<SubmittedQueryOffer> MakeSubmittedQueryOffer(SubmittedQueryOffer offer)
+        public async Task<QueryOffer> MakeSubmittedQueryOffer(QueryOffer offer)
         {
-            var table = _azClient.GetTable<SubmittedQueryOffer>();
+            var table = _azClient.GetTable<QueryOffer>();
             await table.InsertAsync(offer);
             return offer;
         }

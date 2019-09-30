@@ -163,19 +163,18 @@
     <Compile Include="App_Start\StartUp.AutoMapper.cs" />
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\QueryController.cs" />
-    <Compile Include="Controllers\QueryReplayController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\QueryOfferController.cs" />
     <Compile Include="DataObjects\Query.cs" />
-    <Compile Include="Migrations\201909271325303_QueryReplay.cs" />
-    <Compile Include="Migrations\201909271325303_QueryReplay.Designer.cs">
-      <DependentUpon>201909271325303_QueryReplay.cs</DependentUpon>
+    <Compile Include="Migrations\201909301214076_Initial.cs" />
+    <Compile Include="Migrations\201909301214076_Initial.Designer.cs">
+      <DependentUpon>201909301214076_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909301247241_Initial1.cs" />
+    <Compile Include="Migrations\201909301247241_Initial1.Designer.cs">
+      <DependentUpon>201909301247241_Initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\QueryDBEntity.cs" />
-    <Compile Include="DataObjects\QueryReplay.cs" />
-    <Compile Include="Migrations\201909271123253_Auction.cs" />
-    <Compile Include="Migrations\201909271123253_Auction.Designer.cs">
-      <DependentUpon>201909271123253_Auction.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DataObjects\QueryOffer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Models\QueryDomainManager.cs" />
@@ -199,11 +198,11 @@
     <None Include="Properties\PublishProfiles\MobileAppBackendIon - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909271123253_Auction.resx">
-      <DependentUpon>201909271123253_Auction.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909301214076_Initial.resx">
+      <DependentUpon>201909301214076_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909271325303_QueryReplay.resx">
-      <DependentUpon>201909271325303_QueryReplay.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909301247241_Initial1.resx">
+      <DependentUpon>201909301247241_Initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

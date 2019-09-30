@@ -13,7 +13,7 @@ namespace MobileApp
 			InitializeComponent ();
 		}
 
-        public SubmittedQueryOffers(SubmittedQuery query) : this()
+        public SubmittedQueryOffers(Query query) : this()
         {
             this.BindingContext = new SubmittedQueryOffersViewModel(query, Navigation);
         }
