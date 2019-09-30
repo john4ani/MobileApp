@@ -14,7 +14,7 @@ namespace MobileApp.ViewModels
         {
             _receivedQuery = item;
             Price = 0;
-            MakeOfferCommand = new Command<Bid>(ExecuteMakeOffer, CanExecuteMakeOffer);
+            MakeOfferCommand = new Command<Offer>(ExecuteMakeOffer, CanExecuteMakeOffer);
         }
 
 
@@ -45,21 +45,19 @@ namespace MobileApp.ViewModels
 
         public ICommand MakeOfferCommand { get; private set; }
 
-        public async void ExecuteMakeOffer(Bid parameter)
+        public async void ExecuteMakeOffer(Offer parameter)
         {
 
             var newBid = await App.GetQueringService().MakeSubmittedQueryOffer(
-                new SubmittedQueryOffer({ = targetItem.Id, BidAmount = BidAmount });
+                new SubmittedQueryOffer{ SubmittedQueryId = _receivedQuery.Id, OfferPrice = Price });
 
-            Item.CurrentBid = newBid.BidAmount;
-
-            MessagingCenter.Send<PlaceBidViewModel, AuctionItem>(this, Constants.MSG_ITEMUPDATED, Item);
+            MessagingCenter.Send(this, Constants.MSG_ITEMUPDATED, ReceivedQuery);
 
             //move back to the page they were on before bidding
             await Navigation.PopAsync();
 
         }
-        public bool CanExecuteMakeOffer(Bid parameter)
+        public bool CanExecuteMakeOffer(Offer parameter)
         {
             return true;
         }

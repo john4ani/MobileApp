@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ReceivedOfferTakeAction.xaml.cs">
+      <DependentUpon>ReceivedOfferTakeAction.xaml</DependentUpon>
+    </Compile>
     <Compile Update="SubmittedQueryOffers.xaml.cs">
       <DependentUpon>SubmittedQueryOffers.xaml</DependentUpon>
     </Compile>

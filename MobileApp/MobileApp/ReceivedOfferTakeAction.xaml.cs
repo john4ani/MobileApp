@@ -6,12 +6,12 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MakeOfferForReceivedQuery : TabbedPage
+    public partial class ReceivedOfferTakeAction : TabbedPage
     {
-        public MakeOfferForReceivedQuery(ReceivedQuery query)
+        public ReceivedOfferTakeAction(SubmittedQueryOffer offer)
         {
             InitializeComponent();
-            this.BindingContext = new MakeOfferForReceivedQueryViewModel(query, Navigation);
+            this.BindingContext = new ReceivedOfferTakeActionViewModel(offer, Navigation);
         }
     }
 }

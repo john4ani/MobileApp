@@ -1,4 +1,5 @@
 ﻿using MobileApp.Models;
+using MobileApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,13 +15,13 @@ namespace MobileApp
 
         public SubmittedQueryOffers(SubmittedQuery query) : this()
         {
-            this.BindingContext = new QueryOffersViewModel(query, Navigation);
+            this.BindingContext = new SubmittedQueryOffersViewModel(query, Navigation);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            ((QueryOffersViewModel)this.BindingContext).Load();
+            ((SubmittedQueryOffersViewModel)this.BindingContext).Load();
         }
 
         /*     protected void Item_Tapped(object sender, ItemTappedEventArgs e)
