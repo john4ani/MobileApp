@@ -36,5 +36,7 @@ namespace MobileApp.Backend.Models
         public DbSet<Query> Queries { get; set; }
 
         public DbSet<QueryOffer> QueryOffers { get; set; }
+
+        public System.Data.Entity.DbSet<MobileApp.Backend.DataObjects.User> Users { get; set; }
     }
 }

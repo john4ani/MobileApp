@@ -12,16 +12,15 @@ namespace MobileApp
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this.FirstPage, true);
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            Message.Text = "Create a profile";
-
-            //MobileServiceClient client = new MobileServiceClient("https://mobileappbackendion.azurewebsites.net/");
-            //var items = await client.GetTable<TodoItem>().ReadAsync();
-            //var item = items.First();
-            //Message.Text = item.Text;
+            await Navigation.PushAsync(new LoginPage());
+        }
+        private async void SignUp_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistrationPage());
         }
     }
 }

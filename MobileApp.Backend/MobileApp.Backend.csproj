@@ -164,7 +164,9 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\QueryController.cs" />
     <Compile Include="Controllers\QueryOfferController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataObjects\Query.cs" />
+    <Compile Include="DataObjects\User.cs" />
     <Compile Include="Migrations\201909301214076_Initial.cs" />
     <Compile Include="Migrations\201909301214076_Initial.Designer.cs">
       <DependentUpon>201909301214076_Initial.cs</DependentUpon>
