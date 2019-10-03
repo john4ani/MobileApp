@@ -175,6 +175,8 @@
     <Compile Include="Migrations\201909301247241_Initial1.Designer.cs">
       <DependentUpon>201909301247241_Initial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserDomainManager.cs" />
+    <Compile Include="Models\UserDBEntity.cs" />
     <Compile Include="Models\QueryDBEntity.cs" />
     <Compile Include="DataObjects\QueryOffer.cs" />
     <Compile Include="Migrations\Configuration.cs" />

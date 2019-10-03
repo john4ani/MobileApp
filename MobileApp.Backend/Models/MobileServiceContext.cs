@@ -1,7 +1,6 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Tables;
 using MobileApp.Backend.DataObjects;
 
@@ -37,6 +36,6 @@ namespace MobileApp.Backend.Models
 
         public DbSet<QueryOffer> QueryOffers { get; set; }
 
-        public System.Data.Entity.DbSet<MobileApp.Backend.DataObjects.User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
