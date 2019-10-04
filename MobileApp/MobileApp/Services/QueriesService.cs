@@ -3,14 +3,14 @@ using MobileApp.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MobileApp
+namespace MobileApp.Services
 {
-    public class QueringService
+    public class QueriesService
     {
-        private static MobileServiceClient _azClient;
-        public QueringService(string serviceBaseUrl)
+        private MobileServiceClient _azClient;
+        public QueriesService(MobileServiceClient client)
         {
-            _azClient = new MobileServiceClient(serviceBaseUrl);
+            _azClient = client;
         }
 
         public async Task<IEnumerable<Query>> GetReceivedQueries()

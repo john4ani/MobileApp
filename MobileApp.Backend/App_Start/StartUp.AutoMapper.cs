@@ -2,9 +2,9 @@
 using MobileApp.Backend.Models;
 using System.Web.Http;
 
-namespace MobileApp.Backend.App_Start
+namespace MobileApp.Backend
 {
-    public partial class StartUp
+    public partial class Startup
     {
         public static void ConfigureAutoMapper(HttpConfiguration httpConfiguration)
         {

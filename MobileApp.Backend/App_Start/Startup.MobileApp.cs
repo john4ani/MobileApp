@@ -36,6 +36,8 @@ namespace MobileApp.Backend
             }
 
             app.UseWebApi(config);
+            ConfigureSwagger(config);
+            ConfigureAutoMapper(config);
         }
     }    
 }

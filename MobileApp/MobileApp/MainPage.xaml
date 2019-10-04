@@ -14,13 +14,12 @@
         <AbsoluteLayout>
             <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
                 <Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />
-                <Button x:Name="logIn" FontSize="Medium" BorderColor="Black" FlexLayout.AlignSelf="Stretch" CornerRadius="5"  Clicked="LoginButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Login" TextColor="White" BackgroundColor="#3399ff"/>
+                <Button x:Name="LogIn" FontSize="Medium" BorderColor="Black" FlexLayout.AlignSelf="Stretch" CornerRadius="5"  Clicked="LoginButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Login" TextColor="White" BackgroundColor="#3399ff"/>
                 <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" FlexLayout.AlignSelf="Center"/>
-                <Button x:Name="signUp" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  Clicked="SignUp_Clicked" HorizontalOptions="CenterAndExpand" Text="Sign Up"/>
+                <Button x:Name="Register" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  Clicked="SignUp_Clicked" HorizontalOptions="CenterAndExpand" Text="Sign Up"/>
                 <Label Text=""/>
             </FlexLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
-
-
+    
 </ContentPage>
