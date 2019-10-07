@@ -20,6 +20,7 @@ namespace MobileApp.Views
             PasswordEntry.ReturnCommand = new Command(() => ConfirmpasswordEntry.Focus());
             ConfirmpasswordEntry.ReturnCommand = new Command(() => Register.Focus());
         }
+
         private async void SignupValidation_ButtonClicked(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(DisplayNameEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text) ||

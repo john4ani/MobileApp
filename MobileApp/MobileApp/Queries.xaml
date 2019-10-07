@@ -10,7 +10,7 @@
     </TabbedPage.Resources>
 
     <TabbedPage.Children>
-        <ContentPage Title="My Queries">
+        <ContentPage Title="Submitted Queries">
 
             <StackLayout Orientation="Vertical" VerticalOptions="Start">
                 <ActivityIndicator  HorizontalOptions="CenterAndExpand">
@@ -37,7 +37,10 @@
                         <beh:ListViewSelectedItemBehavior Command="{Binding SelectAuction}" Converter="{StaticResource SelectedItemConverter}" />
                     </ListView.Behaviors>
                 </ListView>
+                <Button x:Name="NewQueryButton" Clicked="NewQueryButton_Clicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="New Query"/>
             </StackLayout>
-        </ContentPage>        
+        </ContentPage>
+        <ContentPage Title="Received Queries">
+        </ContentPage>
     </TabbedPage.Children>
 </TabbedPage>

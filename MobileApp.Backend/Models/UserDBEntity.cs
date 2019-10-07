@@ -1,6 +1,4 @@
 ﻿using Microsoft.Azure.Mobile.Server;
-using MobileApp.Backend.DataObjects;
-using System.Collections.ObjectModel;
 
 namespace MobileApp.Backend.Models
 {

@@ -80,7 +80,7 @@ namespace MobileApp.Views
                 if (validData)
                 {
                     popupLoadingView.IsVisible = false;
-                    await Navigation.PushAsync(LoginPageName);
+                    await Navigation.PushAsync(new Queries());
                 }
                 else
                 {

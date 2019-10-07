@@ -40,5 +40,12 @@ namespace MobileApp.Services
             await table.InsertAsync(offer);
             return offer;
         }
-    }
+
+        public async Task<Query> MakeQuery(Query query)
+        {
+            var table = _azClient.GetTable<Query>();
+            await table.InsertAsync(query);
+            return query;
+        }    
+}
 }

@@ -1,4 +1,5 @@
 ﻿using MobileApp.ViewModels;
+using MobileApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,13 +11,18 @@ namespace MobileApp
         public Queries()
         {
             InitializeComponent();
-            this.BindingContext = new QueriesViewModel(this.Navigation);
+            BindingContext = new QueriesViewModel(Navigation);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             ((QueriesViewModel)BindingContext).Load();
+        }
+
+        private void NewQueryButton_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new QueryCategoriesPage());
         }
     }
 }

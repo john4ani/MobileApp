@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.QueryCategoriesPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10,35,10,10">
+            <Label Text="Select a Category"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Food"
+                    Clicked="OnFoodButtonClicked" />
+                <Button Grid.Column="1"
+                    Text="Taxi"
+                    Clicked="OnTaxiButtonClicked"/>
+                <Button Text="Drugs" Grid.Row="1"
+                    Clicked="OnDrugsButtonClicked" />
+                <Button Grid.Column="1" Grid.Row="1"
+                    Text="Grocery"
+                    Clicked="OnGroceryButtonClicked"/>
+                <Button Text="Peer to Peer" Grid.Row="2"
+                    Clicked="OnP2pButtonClicked" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

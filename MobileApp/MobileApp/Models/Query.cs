@@ -12,7 +12,7 @@ namespace MobileApp.Models
         public string Description { get; set; }
         public DateTime EventDate { get; set; }
 
-        protected Query()
+        public Query()
         {
 
         }
