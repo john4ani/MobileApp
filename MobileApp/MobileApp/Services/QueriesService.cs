@@ -27,10 +27,17 @@ namespace MobileApp.Services
             return await table.ReadAsync();
         }
 
+        public async Task<Query> MakeQuery(Query query)
+        {
+            var table = _azClient.GetTable<Query>();
+            await table.InsertAsync(query);
+            return query;
+        }
+
         public async Task<IEnumerable<QueryOffer>> GetSubmittedQueryOffers(string submittedQueryId)
         {
             var table = _azClient.GetTable<QueryOffer>();
-            var query = table.Where(qr=>qr.QueryId == submittedQueryId);
+            var query = table.Where(qr => qr.QueryId == submittedQueryId);
             return await table.ReadAsync(query);
         }
 
@@ -40,12 +47,5 @@ namespace MobileApp.Services
             await table.InsertAsync(offer);
             return offer;
         }
-
-        public async Task<Query> MakeQuery(Query query)
-        {
-            var table = _azClient.GetTable<Query>();
-            await table.InsertAsync(query);
-            return query;
-        }    
-}
+    }
 }

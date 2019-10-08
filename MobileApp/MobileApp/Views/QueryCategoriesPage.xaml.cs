@@ -12,9 +12,9 @@ namespace MobileApp.Views
 			InitializeComponent ();
 		}
 
-        private void OnFoodButtonClicked(object sender, EventArgs e)
+        private async void OnFoodButtonClicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new CreateFoodQuery());
         }
 
         private void OnTaxiButtonClicked(object sender, EventArgs e)

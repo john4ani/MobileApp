@@ -11,6 +11,9 @@ namespace MobileApp.Backend
             AutoMapper.Mapper.Initialize(cfg=>
             {
                 cfg.CreateMap<Query, QueryDBEntity>();
+                cfg.CreateMap<QueryDBEntity, Query>();
+                cfg.CreateMap<User, UserDBEntity>();
+                cfg.CreateMap<UserDBEntity,User>();
             });
         }
     }

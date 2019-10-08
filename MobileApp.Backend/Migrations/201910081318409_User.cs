@@ -3,7 +3,7 @@ namespace MobileApp.Backend.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial1 : DbMigration
+    public partial class User : DbMigration
     {
         public override void Up()
         {

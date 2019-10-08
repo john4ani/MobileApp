@@ -69,6 +69,7 @@ namespace MobileApp.Views
                 }
             }
         }
+
         private async void Login_ClickedEvent(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());

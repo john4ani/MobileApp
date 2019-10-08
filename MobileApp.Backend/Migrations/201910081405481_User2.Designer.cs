@@ -7,13 +7,13 @@ namespace MobileApp.Backend.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initial1 : IMigrationMetadata
+    public sealed partial class User2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(User2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201909301247241_Initial1"; }
+            get { return "201910081405481_User2"; }
         }
         
         string IMigrationMetadata.Source

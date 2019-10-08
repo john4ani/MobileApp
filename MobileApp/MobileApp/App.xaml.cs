@@ -11,7 +11,7 @@ namespace MobileApp
 
         public App()
         {
-            var mobileClient = new MobileServiceClient("https://mobileappbackend20191004060520.azurewebsites.net/");
+            var mobileClient = new MobileServiceClient("https://ionmobileappbackend.azurewebsites.net/");
             _queriesService = new QueriesService(mobileClient);
             _userService = new UserService(mobileClient);
             InitializeComponent();

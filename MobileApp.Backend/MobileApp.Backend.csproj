@@ -174,21 +174,17 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataObjects\Query.cs" />
     <Compile Include="DataObjects\User.cs" />
-    <Compile Include="Migrations\201909301214076_Initial.cs" />
-    <Compile Include="Migrations\201909301214076_Initial.Designer.cs">
-      <DependentUpon>201909301214076_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201910071254526_Initial.cs" />
+    <Compile Include="Migrations\201910071254526_Initial.Designer.cs">
+      <DependentUpon>201910071254526_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909301247241_Initial1.cs" />
-    <Compile Include="Migrations\201909301247241_Initial1.Designer.cs">
-      <DependentUpon>201909301247241_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201910081318409_User.cs" />
+    <Compile Include="Migrations\201910081318409_User.Designer.cs">
+      <DependentUpon>201910081318409_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910041401407_User.cs" />
-    <Compile Include="Migrations\201910041401407_User.Designer.cs">
-      <DependentUpon>201910041401407_User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910041501103_User2.cs" />
-    <Compile Include="Migrations\201910041501103_User2.Designer.cs">
-      <DependentUpon>201910041501103_User2.cs</DependentUpon>
+    <Compile Include="Migrations\201910081405481_User2.cs" />
+    <Compile Include="Migrations\201910081405481_User2.Designer.cs">
+      <DependentUpon>201910081405481_User2.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDomainManager.cs" />
     <Compile Include="Models\UserDBEntity.cs" />
@@ -214,20 +210,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\MobileAppBackend20191004060520 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\IonMobileAppBackend - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909301214076_Initial.resx">
-      <DependentUpon>201909301214076_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910071254526_Initial.resx">
+      <DependentUpon>201910071254526_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909301247241_Initial1.resx">
-      <DependentUpon>201909301247241_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910081318409_User.resx">
+      <DependentUpon>201910081318409_User.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910041401407_User.resx">
-      <DependentUpon>201910041401407_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910041501103_User2.resx">
-      <DependentUpon>201910041501103_User2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910081405481_User2.resx">
+      <DependentUpon>201910081405481_User2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
