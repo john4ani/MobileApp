@@ -15,7 +15,8 @@ namespace MobileApp.Backend.Controllers
         {
             base.Initialize(controllerContext);
             MobileServiceContext context = new MobileServiceContext();
-            DomainManager = new QueryDomainManager(context, Request);
+            //DomainManager = new QueryDomainManager(context, Request);
+            DomainManager = new EntityDomainManager<Query>(context, Request);
         }
 
         // GET tables/Query

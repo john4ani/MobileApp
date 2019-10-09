@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Authentication;
 using Microsoft.Azure.Mobile.Server.Config;
+using MobileApp.Backend.Models;
 using Owin;
 
 namespace MobileApp.Backend
@@ -20,7 +21,10 @@ namespace MobileApp.Backend
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
-             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
+            // Use Entity Framework Code First to create database tables based on your DbContext
+            Database.SetInitializer(new MobileServiceInitializer());
+
+            MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
             if (string.IsNullOrEmpty(settings.HostName))
             {
@@ -39,6 +43,14 @@ namespace MobileApp.Backend
             ConfigureSwagger(config);
             ConfigureAutoMapper(config);
         }
-    }    
+    }
+
+    public class MobileServiceInitializer : CreateDatabaseIfNotExists<MobileServiceContext>
+    {
+        protected override void Seed(MobileServiceContext context)
+        {
+            base.Seed(context);
+        }
+    }
 }
 

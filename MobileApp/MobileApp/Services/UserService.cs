@@ -10,7 +10,7 @@ namespace MobileApp.Services
         private MobileServiceClient _azClient;
         public UserService(MobileServiceClient client)
         {
-            _azClient = client;
+            _azClient = new MobileServiceClient("https://ionmobileappbackend.azurewebsites.net/");
         }
 
         public async Task<bool> AddUserAsync(User user)

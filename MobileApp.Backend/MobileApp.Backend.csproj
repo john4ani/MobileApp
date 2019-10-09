@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201910081405481_User2.Designer.cs">
       <DependentUpon>201910081405481_User2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910091410193_Query.cs" />
+    <Compile Include="Migrations\201910091410193_Query.Designer.cs">
+      <DependentUpon>201910091410193_Query.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDomainManager.cs" />
     <Compile Include="Models\UserDBEntity.cs" />
     <Compile Include="Models\QueryDBEntity.cs" />
@@ -221,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910081405481_User2.resx">
       <DependentUpon>201910081405481_User2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910091410193_Query.resx">
+      <DependentUpon>201910091410193_Query.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
