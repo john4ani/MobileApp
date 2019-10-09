@@ -174,21 +174,9 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataObjects\Query.cs" />
     <Compile Include="DataObjects\User.cs" />
-    <Compile Include="Migrations\201910071254526_Initial.cs" />
-    <Compile Include="Migrations\201910071254526_Initial.Designer.cs">
-      <DependentUpon>201910071254526_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910081318409_User.cs" />
-    <Compile Include="Migrations\201910081318409_User.Designer.cs">
-      <DependentUpon>201910081318409_User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910081405481_User2.cs" />
-    <Compile Include="Migrations\201910081405481_User2.Designer.cs">
-      <DependentUpon>201910081405481_User2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910091410193_Query.cs" />
-    <Compile Include="Migrations\201910091410193_Query.Designer.cs">
-      <DependentUpon>201910091410193_Query.cs</DependentUpon>
+    <Compile Include="Migrations\201910091449113_Initial.cs" />
+    <Compile Include="Migrations\201910091449113_Initial.Designer.cs">
+      <DependentUpon>201910091449113_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDomainManager.cs" />
     <Compile Include="Models\UserDBEntity.cs" />
@@ -217,17 +205,8 @@
     <None Include="Properties\PublishProfiles\IonMobileAppBackend - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910071254526_Initial.resx">
-      <DependentUpon>201910071254526_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910081318409_User.resx">
-      <DependentUpon>201910081318409_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910081405481_User2.resx">
-      <DependentUpon>201910081405481_User2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910091410193_Query.resx">
-      <DependentUpon>201910091410193_Query.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910091449113_Initial.resx">
+      <DependentUpon>201910091449113_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
