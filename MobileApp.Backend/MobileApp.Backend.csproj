@@ -174,9 +174,9 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataObjects\Query.cs" />
     <Compile Include="DataObjects\User.cs" />
-    <Compile Include="Migrations\201910091449113_Initial.cs" />
-    <Compile Include="Migrations\201910091449113_Initial.Designer.cs">
-      <DependentUpon>201910091449113_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201910100727214_Initial.cs" />
+    <Compile Include="Migrations\201910100727214_Initial.Designer.cs">
+      <DependentUpon>201910100727214_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDomainManager.cs" />
     <Compile Include="Models\UserDBEntity.cs" />
@@ -205,8 +205,8 @@
     <None Include="Properties\PublishProfiles\IonMobileAppBackend - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910091449113_Initial.resx">
-      <DependentUpon>201910091449113_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910100727214_Initial.resx">
+      <DependentUpon>201910100727214_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

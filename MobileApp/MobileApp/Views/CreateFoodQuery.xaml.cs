@@ -23,7 +23,8 @@ namespace MobileApp.Views
             var query = new Query
             {
                 Description = queryDescription.Text,
-                Category = "Food"
+                Category = "Food",
+                //EventDate = new DateTime(DateTime.Now.Ticks, DateTimeKind.Utc)
             };
             await App.GetQueringService().MakeQuery(query);
             await Navigation.PushAsync(new Queries());

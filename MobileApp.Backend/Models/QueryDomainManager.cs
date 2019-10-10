@@ -31,7 +31,7 @@ namespace MobileApp.Backend.Models
                            Id = ai.Id,
                            Description = ai.Description,
                            Name = ai.Name,
-                           EventDate = ai.EventDate,
+                           //EventDate = ai.EventDate,
                            Category = ai.Category
                            
                        };

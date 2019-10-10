@@ -24,7 +24,6 @@ namespace MobileApp.Backend.Migrations
                         Name = c.String(),
                         Category = c.String(),
                         Description = c.String(),
-                        EventDate = c.DateTime(nullable: false),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
                             {
@@ -129,7 +128,6 @@ namespace MobileApp.Backend.Migrations
                             }),
                         Name = c.String(),
                         Description = c.String(),
-                        EventDate = c.DateTime(nullable: false),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
                             {

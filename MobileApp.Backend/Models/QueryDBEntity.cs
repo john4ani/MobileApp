@@ -9,7 +9,7 @@ namespace MobileApp.Backend.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public DateTime EventDate { get; set; }
+        //public DateTime EventDate { get; set; }
 
         public virtual Collection<QueryOffer> QueryOffers { get; set; }
     }

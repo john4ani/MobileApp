@@ -13,7 +13,7 @@ namespace MobileApp.Backend.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201910091449113_Initial"; }
+            get { return "201910100727214_Initial"; }
         }
         
         string IMigrationMetadata.Source
