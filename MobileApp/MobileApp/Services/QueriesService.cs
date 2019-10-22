@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Services
 {
-    public class QueriesService
+    public class QueriesService : IQueriesService
     {
         private MobileServiceClient _azClient;
         public QueriesService(MobileServiceClient client)

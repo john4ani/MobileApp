@@ -4,7 +4,10 @@
              x:Class="MobileApp.Views.RegisterPage"
              xmlns:local="clr-namespace:MobileApp"
              xmlns:vm="clr-namespace:MobileApp.ViewModels"
-             Title="Registration Page">
+             Title="Registration Page"
+             NavigationPage.HasBackButton="True" 
+             NavigationPage.HasNavigationBar="True"
+             >
     <ContentPage.BindingContext>
         <vm:RegisterViewModel/>
     </ContentPage.BindingContext>

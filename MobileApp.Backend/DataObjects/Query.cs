@@ -1,5 +1,4 @@
 ﻿using Microsoft.Azure.Mobile.Server;
-using System;
 
 
 namespace MobileApp.Backend.DataObjects

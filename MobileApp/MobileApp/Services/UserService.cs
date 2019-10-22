@@ -5,21 +5,21 @@ using System.Threading.Tasks;
 
 namespace MobileApp.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private MobileServiceClient _azClient;
         public UserService(MobileServiceClient client)
         {
-            _azClient = new MobileServiceClient("https://ionmobileappbackend.azurewebsites.net/");
+            _azClient = client;
         }
 
         public async Task<bool> AddUserAsync(User user)
         {
             var table = _azClient.GetTable<User>();
-            //var query = table.Where(x => x.Email == user.Email);
-            //var existingUsers = await table.ReadAsync(query);
-            //if (existingUsers.Count() != 0)
-            //    return false;
+            var query = table.Where(x => x.Email == user.Email);
+            var existingUsers = await table.ReadAsync(query);
+            if (existingUsers.Count() != 0)
+                return false;
             await table.InsertAsync(user);
             return true;
         }

@@ -1,18 +1,17 @@
 namespace MobileApp.Backend.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+    using Microsoft.Azure.Mobile.Server.Tables;
+    using System.Data.Entity.Migrations;    
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MobileApp.Backend.Models.MobileServiceContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.MobileServiceContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            SetSqlGenerator("System.Data.SqlClient", new EntityTableSqlGenerator());
         }
 
-        protected override void Seed(MobileApp.Backend.Models.MobileServiceContext context)
+        protected override void Seed(Models.MobileServiceContext context)
         {
             //  This method will be called after migrating to the latest version.
 

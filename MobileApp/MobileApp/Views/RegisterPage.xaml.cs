@@ -65,7 +65,7 @@ namespace MobileApp.Views
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex);
+                    await DisplayAlert("User Add", "Registration not successfull.", "OK");
                 }
             }
         }

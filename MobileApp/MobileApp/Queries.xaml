@@ -27,14 +27,14 @@
                         </OnPlatform>
                     </ActivityIndicator.IsRunning>
                 </ActivityIndicator>
-                <ListView ItemsSource="{Binding MyQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshAuctions}" IsRefreshing="{Binding IsLoading}">
+                <ListView ItemsSource="{Binding SubmittedQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshSubmittedQueries}" IsRefreshing="{Binding IsLoading}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.Behaviors>
-                        <beh:ListViewSelectedItemBehavior Command="{Binding SelectAuction}" Converter="{StaticResource SelectedItemConverter}" />
+                        <beh:ListViewSelectedItemBehavior Command="{Binding SelectSubmittedQuery}" Converter="{StaticResource SelectedItemConverter}" />
                     </ListView.Behaviors>
                 </ListView>
                 <Button x:Name="NewQueryButton" Clicked="NewQueryButton_Clicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="New Query"/>

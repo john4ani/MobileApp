@@ -6,14 +6,14 @@ namespace MobileApp
 {
     public partial class App : Application
     {
-        private static QueriesService _queriesService;
-        private static UserService _userService;
+        private static IQueriesService _queriesService;
+        private static IUserService _userService;
 
         public App()
         {
-            var mobileClient = new MobileServiceClient("https://ionmobileappbackend.azurewebsites.net/");
-            _queriesService = new QueriesService(mobileClient);
-            _userService = new UserService(mobileClient);
+            //var mobileClient = new MobileServiceClient("http://localhost/MobileAppBackend");
+            _queriesService = new MockQueriesService();
+            _userService = new MockUserService();
             InitializeComponent();
             var userProfileCreated = false;
 
@@ -23,12 +23,12 @@ namespace MobileApp
                 MainPage = new NavigationPage(new Queries());
         }
 
-        public static QueriesService GetQueringService()
+        public static IQueriesService GetQueringService()
         {
             return _queriesService;
         }
 
-        public static UserService GetUserService()
+        public static IUserService GetUserService()
         {
             return _userService;
         }
