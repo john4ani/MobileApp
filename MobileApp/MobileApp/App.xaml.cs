@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using MobileApp.Services;
+using MobileApp.Views;
 using Xamarin.Forms;
 
 namespace MobileApp

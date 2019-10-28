@@ -11,5 +11,6 @@ namespace MobileApp.Services
         Task<IEnumerable<QueryOffer>> GetSubmittedQueryOffers(string submittedQueryId);
         Task<Query> MakeQuery(Query query);
         Task<QueryOffer> MakeSubmittedQueryOffer(QueryOffer offer);
+        Task<QueryOffer> UpdateQueryOfferAsync(QueryOffer offer);
     }
 }

@@ -3,7 +3,7 @@ using MobileApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp
+namespace MobileApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SubmittedQueryOffers : ContentPage
@@ -13,9 +13,9 @@ namespace MobileApp
 			InitializeComponent ();
 		}
 
-        public SubmittedQueryOffers(Query query) : this()
+        public SubmittedQueryOffers(Query query, INavigation navigation) : this()
         {
-            this.BindingContext = new SubmittedQueryOffersViewModel(query, Navigation);
+            this.BindingContext = new SubmittedQueryOffersViewModel(query, navigation);
         }
 
         protected override void OnAppearing()

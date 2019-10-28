@@ -9,5 +9,6 @@ namespace MobileApp.Services
         Task<bool> UpdateUserPasswordAsync(string email, string password);
         Task<bool> ValidateLoginAsync(string email, string password);
         Task<bool> ValidateUserEmailAsync(string email);
+        Task<User> GetLoggedInUserAsync();
     }
 }

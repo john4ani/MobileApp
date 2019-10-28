@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ReceivedOfferTakeAction"
+             Title="Take Action On Received Offer"
+             NavigationPage.HasBackButton="True" 
+             NavigationPage.HasNavigationBar="True"
+            >
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
+                <!--<Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
+                <Button x:Name="AcceptButton" FontSize="Medium" BorderColor="Black" FlexLayout.AlignSelf="Stretch" CornerRadius="5"  Clicked="AcceptButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Accept Offer" TextColor="White" BackgroundColor="#3399ff"/>
+                <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" FlexLayout.AlignSelf="Center"/>
+                <Button x:Name="RejectButton" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  Clicked="RejectButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Report As Irrelevant"/>
+                <Label Text=""/>
+            </FlexLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+ </ContentPage>

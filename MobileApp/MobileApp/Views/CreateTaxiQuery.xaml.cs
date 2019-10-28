@@ -6,9 +6,9 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CreateFoodQuery : ContentPage
+	public partial class CreateTaxiQuery : ContentPage
 	{
-		public CreateFoodQuery ()
+		public CreateTaxiQuery ()
 		{
 			InitializeComponent ();
 		}
@@ -17,9 +17,9 @@ namespace MobileApp.Views
         {
             var query = new Query
             {
-                Name = queryName.Text,
+                Name = queryFrom.Text + " - " + queryTo.Text,
                 Description = queryDescription.Text,
-                Category = "Food",
+                Category = "Taxi",
                 EventDate = queryDate.Date + queryTime.Time,
                 UserId = App.GetUserService().GetLoggedInUserAsync().Result.Id,
                 Id = Guid.NewGuid().ToString()

@@ -2,6 +2,7 @@
 using MobileApp.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MobileApp.Services
 {
@@ -46,6 +47,24 @@ namespace MobileApp.Services
             var table = _azClient.GetTable<QueryOffer>();
             await table.InsertAsync(offer);
             return offer;
+        }
+
+        public async Task<QueryOffer> UpdateQueryOfferAsync(QueryOffer offer)
+        {
+            var table = _azClient.GetTable<QueryOffer>();
+            var query = table.Where(qo => qo.Id == offer.Id);
+            var existingQuery = await table.ReadAsync(query);
+            if (existingQuery.Count() == 1)
+            {
+                var existingQueryObject = existingQuery.First();
+                existingQueryObject.OfferPrice = offer.OfferPrice;
+                existingQueryObject.Status = offer.Status;
+
+                await table.UpdateAsync(existingQueryObject);
+
+                return existingQueryObject;
+            }
+            return null;
         }
     }
 }

@@ -17,10 +17,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ReceivedOfferTakeAction.xaml.cs">
+    <Compile Update="Views\CreatePearToPearQuery.xaml.cs">
+      <DependentUpon>CreatePearToPearQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CreateGroceryQuery.xaml.cs">
+      <DependentUpon>CreateGroceryQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CreateDrugsQuery.xaml.cs">
+      <DependentUpon>CreateDrugsQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CreateTaxiQuery.xaml.cs">
+      <DependentUpon>CreateTaxiQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReceivedOfferTakeAction.xaml.cs">
       <DependentUpon>ReceivedOfferTakeAction.xaml</DependentUpon>
     </Compile>
-    <Compile Update="SubmittedQueryOffers.xaml.cs">
+    <Compile Update="Views\SubmittedQueryOffers.xaml.cs">
       <DependentUpon>SubmittedQueryOffers.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\LoginPage.xaml.cs">
@@ -32,13 +44,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="MakeOfferForReceivedQuery.xaml">
+    <EmbeddedResource Update="Views\MakeOfferForReceivedQuery.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Queries.xaml">
+    <EmbeddedResource Update="Views\Queries.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="SubmittedQueryOffers.xaml">
+    <EmbeddedResource Update="Views\SubmittedQueryOffers.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CreateFoodQuery.xaml">

@@ -1,6 +1,8 @@
 ﻿using MobileApp.Models;
+using MobileApp.Views;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -29,7 +31,7 @@ namespace MobileApp.ViewModels
         public void GoToMakeOfferForReceivedQuery(Query query)
         {
             Navigation.PushAsync(
-                new MakeOfferForReceivedQuery(query));
+                new MakeOfferForReceivedQuery(query, Navigation));
         }
 
         public ICommand SelectSubmittedQuery
@@ -41,11 +43,11 @@ namespace MobileApp.ViewModels
         public void GoToSubmittedQueryOffers(Query query)
         {
             Navigation.PushAsync(
-                new SubmittedQueryOffers(query));
+                new SubmittedQueryOffers(query, Navigation));
         }
 
-        private ObservableCollection<Query> _submittedQueries;
-        public ObservableCollection<Query> SubmittedQueries
+        private ObservableCollection<SubmittedQuery> _submittedQueries;
+        public ObservableCollection<SubmittedQuery> SubmittedQueries
         {
             get { return _submittedQueries; }
             set {
@@ -84,7 +86,8 @@ namespace MobileApp.ViewModels
             try
             {
                 var itemsResult = await App.GetQueringService().GetSubmittedQueries();
-                SubmittedQueries = new ObservableCollection<Query>(itemsResult);
+                var submittedQueries = itemsResult.Select(q => new SubmittedQuery(q) { OffersCount = App.GetQueringService().GetSubmittedQueryOffers(q.Id).Result.Count()});
+                SubmittedQueries = new ObservableCollection<SubmittedQuery>(submittedQueries);
             }
             catch (Exception ex)
             {

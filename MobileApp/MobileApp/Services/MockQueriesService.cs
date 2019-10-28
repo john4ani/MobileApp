@@ -24,7 +24,7 @@ namespace MobileApp.Services
 
         public async Task<IEnumerable<Query>> GetSubmittedQueries()
         {
-            return _queries;
+            return _queries.Where(q=>q.UserId == App.GetUserService().GetLoggedInUserAsync().Result.Id);
         }
 
         public async Task<Query> MakeQuery(Query query)
@@ -36,13 +36,24 @@ namespace MobileApp.Services
         public async Task<IEnumerable<QueryOffer>> GetSubmittedQueryOffers(string submittedQueryId)
         {
             
-            return _queriesOffers.Where(qo=>qo.Id == submittedQueryId);
+            return _queriesOffers.Where(qo=>qo.QueryId == submittedQueryId);
         }
 
         public async Task<QueryOffer> MakeSubmittedQueryOffer(QueryOffer offer)
         {
             _queriesOffers.Add(offer);
             return offer;
+        }
+
+        public async Task<QueryOffer> UpdateQueryOfferAsync(QueryOffer offer)
+        {
+            var repoOffer = _queriesOffers.Where(qo => qo.Id == offer.Id).FirstOrDefault();
+            if(repoOffer != null)
+            {
+                repoOffer.OfferPrice = offer.OfferPrice;
+                repoOffer.Status = offer.Status;
+            }
+            return repoOffer;
         }
     }
 }

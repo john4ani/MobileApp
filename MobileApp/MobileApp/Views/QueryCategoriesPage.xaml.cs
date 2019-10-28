@@ -17,24 +17,24 @@ namespace MobileApp.Views
             await Navigation.PushAsync(new CreateFoodQuery());
         }
 
-        private void OnTaxiButtonClicked(object sender, EventArgs e)
+        private async void OnTaxiButtonClicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new CreateTaxiQuery());
         }
 
-        private void OnDrugsButtonClicked(object sender, EventArgs e)
+        private async void OnDrugsButtonClicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new CreateDrugsQuery());
         }
 
-        private void OnGroceryButtonClicked(object sender, EventArgs e)
+        private async void OnGroceryButtonClicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new CreateGroceryQuery());
         }
 
-        private void OnP2pButtonClicked(object sender, EventArgs e)
+        private async void OnP2pButtonClicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new CreatePearToPearQuery());
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using MobileApp.Models;
+using MobileApp.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -28,7 +30,7 @@ namespace MobileApp.ViewModels
         public void ActionOnReceivedOffer(QueryOffer item)
         {
             Navigation.PushAsync(
-                new ReceivedOfferTakeAction(item));
+                new ReceivedOfferTakeAction(item, Navigation));
         }
 
         public void ItemUpdated(SubmittedQueryOffersViewModel model, QueryOffer item)
@@ -39,6 +41,7 @@ namespace MobileApp.ViewModels
                 targetItem.OfferPrice = item.OfferPrice;
             }
         }
+
         public ObservableCollection<QueryOffer> Items
         {
             get { return _offers; }
@@ -49,28 +52,19 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public void Load()
+        public async Task<bool> Load()
         {
             //escape if already loaded
             if (Items != null)
-                return;
+                return false;
 
             IsLoading = true;
 
-            App.GetQueringService().GetSubmittedQueryOffers(_submittedQuery.Id).ContinueWith(
-                (ait) =>
-                {
-                    if (ait.Exception == null)
-                    {
-                        Items = new ObservableCollection<QueryOffer>(ait.Result);
-                    }
-                    else
-                    {
-                        //handle exception
-                    }
+            var offers = await App.GetQueringService().GetSubmittedQueryOffers(_submittedQuery.Id);
+            Items = new ObservableCollection<QueryOffer>(offers);
 
-                    IsLoading = false;
-                });
+            IsLoading = false;
+            return true;
         }
 
     }

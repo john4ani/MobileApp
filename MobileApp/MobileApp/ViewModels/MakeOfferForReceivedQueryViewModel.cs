@@ -49,7 +49,7 @@ namespace MobileApp.ViewModels
         {
 
             var newBid = await App.GetQueringService().MakeSubmittedQueryOffer(
-                new QueryOffer{ QueryId = _receivedQuery.Id, OfferPrice = Price });
+                new QueryOffer{ QueryId = _receivedQuery.Id, OfferPrice = Price, Description = "Offer for " + _receivedQuery.Name, Bidder = App.GetUserService().GetLoggedInUserAsync().Result.DisplayName });
 
             MessagingCenter.Send(this, Constants.MSG_ITEMUPDATED, ReceivedQuery);
 

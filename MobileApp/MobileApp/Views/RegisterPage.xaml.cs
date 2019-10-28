@@ -42,7 +42,8 @@ namespace MobileApp.Views
                 {
                     Email = EmailEntry.Text,
                     DisplayName = DisplayNameEntry.Text,
-                    Password = PasswordEntry.Text
+                    Password = PasswordEntry.Text,
+                    Id = Guid.NewGuid().ToString()
                 };
 
                 try

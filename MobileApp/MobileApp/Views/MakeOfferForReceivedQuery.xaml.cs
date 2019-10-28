@@ -3,15 +3,15 @@ using MobileApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp
+namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MakeOfferForReceivedQuery : TabbedPage
     {
-        public MakeOfferForReceivedQuery(Query query)
+        public MakeOfferForReceivedQuery(Query query, INavigation navigation)
         {
             InitializeComponent();
-            this.BindingContext = new MakeOfferForReceivedQueryViewModel(query, Navigation);
+            this.BindingContext = new MakeOfferForReceivedQueryViewModel(query, navigation);
         }
     }
 }

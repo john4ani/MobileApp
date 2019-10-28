@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.ReceivedOfferTakeAction">
+             x:Class="MobileApp.Views.MakeOfferForReceivedQuery"
+             Title="Make Offer for Query"
+             NavigationPage.HasBackButton="True" 
+             NavigationPage.HasNavigationBar="True"
+            >
     <TabbedPage.Children>
         <ContentPage Title="TableView">
             <ContentPage.Content>
@@ -52,12 +56,12 @@
 
     </TabbedPage.Children>
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Name="Bid" Priority="1" Order="Primary" Command="{Binding PlaceBidCommand}" >
-            <ToolbarItem.Icon>
+        <ToolbarItem Name="Bid" Text="Place Bid" Priority="1" Order="Primary" Command="{Binding MakeOfferCommand}" >
+            <!--<ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="Windows,WinPhone" Value="/Toolkit.Content/ApplicationBar.Add.png" />
                 </OnPlatform>
-            </ToolbarItem.Icon>
+            </ToolbarItem.Icon>-->
         </ToolbarItem>
     </TabbedPage.ToolbarItems>
 </TabbedPage>

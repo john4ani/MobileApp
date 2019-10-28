@@ -8,6 +8,8 @@ namespace MobileApp.Services
     public class UserService : IUserService
     {
         private MobileServiceClient _azClient;
+        User _loggedInUser;
+
         public UserService(MobileServiceClient client)
         {
             _azClient = client;
@@ -55,9 +57,17 @@ namespace MobileApp.Services
             var query = table.Where(x => x.Email == email && x.Password == password);
             var existingUsers = await table.ReadAsync(query);
             if (existingUsers.Count() != 0)
+            {
+                _loggedInUser = existingUsers.First();
                 return true;
+            }
             else
                 return false;
+        }
+
+        public async Task<User> GetLoggedInUserAsync()
+        {
+            return _loggedInUser;
         }
     }
 }

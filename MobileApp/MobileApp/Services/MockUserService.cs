@@ -9,9 +9,20 @@ namespace MobileApp.Services
     public class MockUserService : IUserService
     {
         List<User> _azClient;
+        User _loggedInUser;
         public MockUserService()
         {
-            _azClient = new List<User>();
+            _azClient = new List<User>
+            {
+                new User
+                {
+                    Id = "a",
+                    DisplayName = "User A",
+                    CurrentAddress = "a",
+                    Password = "a",
+                    Email = "a"
+                }
+            };
         }
 
         public async Task<bool> AddUserAsync(User user)
@@ -33,11 +44,18 @@ namespace MobileApp.Services
         {
             return true;
         }
+
         public async Task<bool> ValidateLoginAsync(string email, string password)
         {
-            if (_azClient.Exists(u => u.Email == email && u.Password == password))
+            _loggedInUser = _azClient.FirstOrDefault(u => u.Email == email && u.Password == password);
+            if (_loggedInUser != null)
                 return true;
             return false;
+        }
+
+        public async Task<User> GetLoggedInUserAsync()
+        {
+            return _loggedInUser;
         }
     }
 }

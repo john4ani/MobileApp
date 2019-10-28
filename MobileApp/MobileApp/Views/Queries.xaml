@@ -2,7 +2,11 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:beh="clr-namespace:MobileApp.Behaviours;assembly=MobileApp"
-             x:Class="MobileApp.Queries">
+             x:Class="MobileApp.Views.Queries"
+             Title="Home Page"
+             NavigationPage.HasBackButton="True" 
+             NavigationPage.HasNavigationBar="True"
+            >
     <TabbedPage.Resources>
         <ResourceDictionary>
             <beh:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
@@ -30,6 +34,10 @@
                 <ListView ItemsSource="{Binding SubmittedQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshSubmittedQueries}" IsRefreshing="{Binding IsLoading}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
+                            <!--<StackLayout Orientation="Horizontal">
+                                <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                                <TextCell Text="{Binding OffersCount}" />
+                            </StackLayout>-->
                             <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -41,6 +49,16 @@
             </StackLayout>
         </ContentPage>
         <ContentPage Title="Received Queries">
+            <ListView ItemsSource="{Binding ReceivedQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshReceivedQueries}" IsRefreshing="{Binding IsLoading}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <beh:ListViewSelectedItemBehavior Command="{Binding SelectReceivedQuery}" Converter="{StaticResource SelectedItemConverter}" />
+                </ListView.Behaviors>
+            </ListView>
         </ContentPage>
     </TabbedPage.Children>
 </TabbedPage>
