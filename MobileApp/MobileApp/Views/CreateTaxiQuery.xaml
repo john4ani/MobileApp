@@ -5,7 +5,7 @@
              Title="Create Taxi Query">
     <ContentPage.Content>
         <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
-            <Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />
+            <!--<Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
             
             <Label TextColor="Black" FontAttributes="Bold" Text="You travel from:" FlexLayout.AlignSelf="Center" FontSize="20"/>
             <Entry x:Name="queryFrom" ReturnType="Next" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />

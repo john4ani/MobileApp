@@ -12,7 +12,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.1" />
     <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>
 

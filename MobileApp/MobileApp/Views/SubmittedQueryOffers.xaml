@@ -44,7 +44,7 @@
                                 <StackLayout Orientation="Vertical" HorizontalOptions="End" >
                                     <Label Text="{Binding OfferPrice, StringFormat='Price: {0:c}'}">
                                         <Label.FontSize>
-                                            <OnIdiom x:TypeArguments="x:Double" Phone="8" Tablet="12" />
+                                            <!--<OnIdiom x:TypeArguments="x:Double" Phone="8" Tablet="12" />-->
                                         </Label.FontSize>
                                     </Label>
                                     <Label Text="{Binding Status}">

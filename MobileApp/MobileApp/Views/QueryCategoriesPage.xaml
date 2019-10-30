@@ -22,7 +22,7 @@
                 <Button Grid.Column="1" Grid.Row="1"
                     Text="Grocery"
                     Clicked="OnGroceryButtonClicked"/>
-                <Button Text="Peer to Peer" Grid.Row="2"
+                <Button Text="Person to Person" Grid.Row="2"
                     Clicked="OnP2pButtonClicked" />
             </Grid>
         </StackLayout>

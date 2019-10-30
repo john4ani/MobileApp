@@ -21,24 +21,32 @@
                     <ActivityIndicator.IsVisible>
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <On Platform="iOS,Android" Value="false" />
-                            <On Platform="WinPhone,Windows" Value="{Binding IsLoading}" />
+                            <!--<On Platform="WinPhone,Windows" Value="{Binding IsLoading}" />-->
                         </OnPlatform>
                     </ActivityIndicator.IsVisible>
                     <ActivityIndicator.IsRunning>
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <On Platform="iOS,Android" Value="false" />
-                            <On Platform="WinPhone,Windows" Value="{Binding IsLoading}" />
+                            <!--<On Platform="WinPhone,Windows" Value="{Binding IsLoading}" />-->
                         </OnPlatform>
                     </ActivityIndicator.IsRunning>
                 </ActivityIndicator>
                 <ListView ItemsSource="{Binding SubmittedQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshSubmittedQueries}" IsRefreshing="{Binding IsLoading}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <!--<StackLayout Orientation="Horizontal">
-                                <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
-                                <TextCell Text="{Binding OffersCount}" />
-                            </StackLayout>-->
-                            <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="7*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Name}" />
+                                        <Label Text="{Binding Description}" />
+                                    </StackLayout>
+                                    <Label Grid.Column="1" Text="{Binding OffersCount, StringFormat='You have {0} offers.'}" />
+                                </Grid>                                
+                            </ViewCell>                            
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.Behaviors>
