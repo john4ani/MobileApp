@@ -22,6 +22,7 @@ namespace MobileApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Xamarin.FormsGoogleMaps.Init("AIzaSyC6jnBTxCkUkVHuD7Eye3P_rIgkIek-0B4");
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());

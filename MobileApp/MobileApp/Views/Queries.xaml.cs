@@ -24,5 +24,10 @@ namespace MobileApp.Views
         {
             Navigation.PushAsync(new QueryCategoriesPage());
         }
+
+        private void ManageSubscriptionsButton_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new MapView());
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -42,7 +43,13 @@ namespace MobileApp.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                var rendererAssemblies = new[]
+                {
+                    typeof(Xamarin.Forms.GoogleMaps.UWP.MapRenderer).GetTypeInfo().Assembly
+                };
+
+                Xamarin.FormsGoogleMaps.Init("Cldo715yxx8AsW9fbco8~j1S02ksU--qDw0DIDs5GtQ~ApaVitwHb-3XzOjVc0MqyELgKha9lc9TXOBiUkXcR-_I8OAkzPfnAitiuugejhpT");
+                Xamarin.Forms.Forms.Init(e, rendererAssemblies);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

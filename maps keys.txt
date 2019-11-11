@@ -1,0 +1,5 @@
+google api key - AIzaSyCoMR5yZTzbEkEj_uslW2a1olxaY4zDltI
+sh1 - BE:71:5F:F1:CB:51:E1:D6:AD:EE:B1:C7:28:BF:0F:D5:11:71:33:58
+IOS maps key - AIzaSyC6jnBTxCkUkVHuD7Eye3P_rIgkIek-0B4
+Android maps key - AIzaSyCoMR5yZTzbEkEj_uslW2a1olxaY4zDltI
+Bing maps key - AjAEga-SLWovIRI03eiKl_kGXL79aeE-fVsGHWMyTMa-j6GI_JQz-z8r-elbuURs

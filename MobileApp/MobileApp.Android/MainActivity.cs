@@ -21,6 +21,7 @@ namespace MobileApp.Droid
 
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
