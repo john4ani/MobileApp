@@ -60,10 +60,28 @@ namespace MobileApp.ViewModels
         public ICommand GetPlacesCommand { get; set; }
         public ICommand GetPlaceDetailCommand { get; set; }
 
-        public ObservableCollection<GooglePlaceAutoCompletePrediction> Places { get; set; }
+        private ObservableCollection<GooglePlaceAutoCompletePrediction> _places;
+        public ObservableCollection<GooglePlaceAutoCompletePrediction> Places
+        {
+            get {return _places; }
+            set
+            {
+                _places = value;
+                NotifyPropertyChanged("Places");
+            }
+        }
         public ObservableCollection<GooglePlaceAutoCompletePrediction> RecentPlaces { get; set; } = new ObservableCollection<GooglePlaceAutoCompletePrediction>();
 
-        public bool ShowRecentPlaces { get; set; }
+        private bool _showRecentPlaces;
+        public bool ShowRecentPlaces
+        {
+            get { return _showRecentPlaces; }
+            set
+            {
+                _showRecentPlaces = value;
+                NotifyPropertyChanged("ShowRecentPlaces");
+            }
+        }
         bool _isPickupFocused = true;
 
         string _pickupText;

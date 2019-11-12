@@ -24,9 +24,9 @@
                              Padding="10"
                              BackgroundColor="LightGray"
                              Orientation="Horizontal">
-                <Image Source="ic_search"
+                <!--<Image Source="ic_search"
                                HeightRequest="20"
-                               WidthRequest="20"/>
+                               WidthRequest="20"/>-->
                 <Entry Placeholder="Enter Pickup"
                                Text="{Binding PickupText}"
                                FontSize="18"
@@ -41,9 +41,9 @@
                            Padding="10"
                            BackgroundColor="LightGray"
                            Orientation="Horizontal">
-                <Image Source="ic_search"
+                <!--<Image Source="ic_search"
                                HeightRequest="20"
-                               WidthRequest="20"/>
+                               WidthRequest="20"/>-->
                 <Entry Placeholder="Where to?" 
                                Text="{Binding OriginText}"
                                FontSize="18"
@@ -102,13 +102,13 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Source="ic_location"
+                                <!--<Image Source="ic_location"
                                              HeightRequest="20"
                                              WidthRequest="20"
                                              VerticalOptions="Start"
                                              Grid.Row="0"
                                              Grid.Column="0"
-                                             Grid.RowSpan="2"/>
+                                             Grid.RowSpan="2"/>-->
 
                                 <Label LineBreakMode="MiddleTruncation"
                                                Text="{Binding StructuredFormatting.MainText}"

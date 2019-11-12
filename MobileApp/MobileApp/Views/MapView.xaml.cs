@@ -40,7 +40,7 @@ namespace MobileApp.Views
             set { SetValue(UpdateCommandProperty, value); }
         }       
 
-        async void Update(Xamarin.Forms.GoogleMaps.Position position)
+        async void Update(Position position)
         {
             if (GoogleMap.Pins.Count == 1 && GoogleMap.Polylines != null && GoogleMap.Polylines?.Count > 1)
                 return;
@@ -65,12 +65,12 @@ namespace MobileApp.Views
 
         }
 
-        void Calculate(List<Xamarin.Forms.GoogleMaps.Position> list)
+        void Calculate(List<Position> list)
         {
             searchLayout.IsVisible = false;
             stopRouteButton.IsVisible = true;
             GoogleMap.Polylines.Clear();
-            var polyline = new Xamarin.Forms.GoogleMaps.Polyline();
+            var polyline = new Polyline();
             foreach (var p in list)
             {
                 polyline.Positions.Add(p);
@@ -79,7 +79,7 @@ namespace MobileApp.Views
             GoogleMap.Polylines.Add(polyline);
             GoogleMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Xamarin.Forms.GoogleMaps.Distance.FromMiles(0.50f)));
 
-            var pin = new Xamarin.Forms.GoogleMaps.Pin
+            var pin = new Pin
             {
                 Type = PinType.Place,
                 Position = new Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
@@ -90,7 +90,7 @@ namespace MobileApp.Views
 
             };
             GoogleMap.Pins.Add(pin);
-            var pin1 = new Xamarin.Forms.GoogleMaps.Pin
+            var pin1 = new Pin
             {
                 Type = PinType.Place,
                 Position = new Position(polyline.Positions.Last().Latitude, polyline.Positions.Last().Longitude),

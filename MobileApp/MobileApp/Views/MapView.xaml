@@ -6,6 +6,8 @@
              xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
              xmlns:vm="clr-namespace:MobileApp.ViewModels"
              Title="Map"
+             CalculateCommand="{Binding CalculateRouteCommand}"
+             UpdateCommand="{Binding UpdatePositionCommand}"
              >    
     <ContentPage.Content>
         <Grid>
@@ -20,9 +22,9 @@
                         Padding="10"
                         x:Name="searchLayout"
                         Margin="30,50,30,0">
-                <Image Source="ic_search"
+                <!--<Image Source="ic_search"
                               HeightRequest="15"
-                              WidthRequest="15"/>
+                              WidthRequest="15"/>-->
                 <Label HorizontalOptions="FillAndExpand"
                               LineBreakMode="TailTruncation"
                               FontAttributes="Italic"
