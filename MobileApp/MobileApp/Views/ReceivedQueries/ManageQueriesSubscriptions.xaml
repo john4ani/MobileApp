@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ReceivedQueries.ManageQueriesSubscriptions"
+             Title="Manage your Queries subscriptions">
+    <ContentPage.Content>
+        <StackLayout Margin="10,35,10,10">
+            <Label Text="Choose what type of Queries you want to receive"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="Food"
+                    CheckedChanged="OnFoodButtonClicked" />
+                    <Label Text="Food"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1">
+                    <CheckBox CheckedChanged="OnTaxiButtonClicked"/>
+                    <Label Text="Taxi"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Row="1">
+                    <CheckBox CheckedChanged="OnDrugsButtonClicked"/>
+                    <Label Text="Drugs"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                    <CheckBox CheckedChanged="OnGroceryButtonClicked"/>
+                    <Label Text="Grocery"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Row="2">
+                    <CheckBox CheckedChanged="OnP2pButtonClicked"/>
+                    <Label Text="Person to Person"/>
+                </StackLayout>                
+            </Grid>
+            <Label Text="You will receive queries for selected subscription(s) for a default radius of 5 Km from selected current address."
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

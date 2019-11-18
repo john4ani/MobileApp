@@ -1,6 +1,6 @@
 ﻿using MobileApp.ViewModels;
 using MobileApp.Views.CreateQuery;
-using MobileApp.Views.GoogleMaps;
+using MobileApp.Views.ReceivedQueries;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,7 +28,7 @@ namespace MobileApp.Views
 
         private void ManageSubscriptionsButton_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new MapView());
+            Navigation.PushAsync(new ManageQueriesSubscriptions());
         }
     }
 }

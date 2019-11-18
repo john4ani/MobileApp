@@ -38,6 +38,9 @@
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ReceivedQueries\ManageQueriesSubscriptions.xaml.cs">
+      <DependentUpon>ManageQueriesSubscriptions.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SubmittedQueries\ReceivedOfferTakeAction.xaml.cs">
       <DependentUpon>ReceivedOfferTakeAction.xaml</DependentUpon>
     </Compile>

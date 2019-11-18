@@ -72,4 +72,10 @@
             </StackLayout>
         </ContentPage>
     </TabbedPage.Children>
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Name="Settings" Text="My Settings" Priority="1" Order="Secondary" />
+        <ToolbarItem Name="Billing" Text="My Billing" Priority="1" Order="Secondary" />
+        <ToolbarItem Name="LogOut" Text="Log Out" Priority="2" Order="Secondary" />
+
+    </TabbedPage.ToolbarItems>
 </TabbedPage>
