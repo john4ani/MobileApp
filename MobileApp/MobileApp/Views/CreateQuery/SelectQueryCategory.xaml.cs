@@ -2,12 +2,12 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.Views
+namespace MobileApp.Views.CreateQuery
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class QueryCategoriesPage : ContentPage
+	public partial class SelectQueryCategory : ContentPage
 	{
-		public QueryCategoriesPage ()
+		public SelectQueryCategory()
 		{
 			InitializeComponent ();
 		}

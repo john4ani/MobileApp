@@ -3,12 +3,12 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.Views
+namespace MobileApp.Views.CreateQuery
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CreateGroceryQuery : ContentPage
+	public partial class CreateTaxiQuery : ContentPage
 	{
-		public CreateGroceryQuery()
+		public CreateTaxiQuery ()
 		{
 			InitializeComponent ();
 		}
@@ -17,15 +17,15 @@ namespace MobileApp.Views
         {
             var query = new Query
             {
-                Name = queryGroceryList.Text,
+                Name = queryFrom.Text + " - " + queryTo.Text,
                 Description = queryDescription.Text,
-                Category = "Grocery",
+                Category = "Taxi",
                 EventDate = queryDate.Date + queryTime.Time,
                 UserId = App.GetUserService().GetLoggedInUserAsync().Result.Id,
                 Id = Guid.NewGuid().ToString()
             };
             await App.GetQueringService().MakeQuery(query);
-            await Navigation.PushAsync(new Queries());
+            await Navigation.PushAsync(new HomePage());
         }
     }
 }

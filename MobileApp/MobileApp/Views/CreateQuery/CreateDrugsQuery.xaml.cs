@@ -3,7 +3,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.Views
+namespace MobileApp.Views.CreateQuery
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CreateDrugsQuery : ContentPage
@@ -25,7 +25,7 @@ namespace MobileApp.Views
                 Id = Guid.NewGuid().ToString()
             };
             await App.GetQueringService().MakeQuery(query);
-            await Navigation.PushAsync(new Queries());
+            await Navigation.PushAsync(new HomePage());
         }
     }
 }

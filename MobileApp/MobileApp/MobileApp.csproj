@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiveXAML" Version="2.1.73" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.1" />
     <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
@@ -19,22 +20,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\CreatePearToPearQuery.xaml.cs">
+    <Compile Update="Views\CreateQuery\CreatePearToPearQuery.xaml.cs">
       <DependentUpon>CreatePearToPearQuery.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\CreateGroceryQuery.xaml.cs">
+    <Compile Update="Views\CreateQuery\CreateGroceryQuery.xaml.cs">
       <DependentUpon>CreateGroceryQuery.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\CreateDrugsQuery.xaml.cs">
+    <Compile Update="Views\CreateQuery\CreateDrugsQuery.xaml.cs">
       <DependentUpon>CreateDrugsQuery.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\CreateTaxiQuery.xaml.cs">
+    <Compile Update="Views\CreateQuery\CreateTaxiQuery.xaml.cs">
       <DependentUpon>CreateTaxiQuery.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ReceivedOfferTakeAction.xaml.cs">
+    <Compile Update="Views\CreateQuery\SelectQueryCategory.xaml.cs">
+      <DependentUpon>SelectQueryCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubmittedQueries\ReceivedOfferTakeAction.xaml.cs">
       <DependentUpon>ReceivedOfferTakeAction.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\SubmittedQueryOffers.xaml.cs">
+    <Compile Update="Views\SubmittedQueries\SubmittedQueryOffers.xaml.cs">
       <DependentUpon>SubmittedQueryOffers.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\LoginPage.xaml.cs">
@@ -46,28 +53,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\MakeOfferForReceivedQuery.xaml">
+    <EmbeddedResource Update="Views\ReceivedQueries\MakeOfferForReceivedQuery.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MapView.xaml">
+    <EmbeddedResource Update="Views\GoogleMaps\MapView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Queries.xaml">
+    <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SearchPlacePage.xaml">
+    <EmbeddedResource Update="Views\GoogleMaps\SearchPlacePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SubmittedQueryOffers.xaml">
+    <EmbeddedResource Update="Views\SubmittedQueries\SubmittedQueryOffers.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CreateFoodQuery.xaml">
+    <EmbeddedResource Update="Views\CreateQuery\CreateFoodQuery.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\QueryCategoriesPage.xaml">
+    <EmbeddedResource Update="Views\CreateQuery\SelectQueryCategory.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RegisterPage.xaml">

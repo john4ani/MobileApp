@@ -1,5 +1,6 @@
 ﻿using MobileApp.Models;
-using MobileApp.Views;
+using MobileApp.Views.ReceivedQueries;
+using MobileApp.Views.SubmittedQueries;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;

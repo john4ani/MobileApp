@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.Views
+namespace MobileApp.Views.GoogleMaps
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SearchPlacePage : ContentPage

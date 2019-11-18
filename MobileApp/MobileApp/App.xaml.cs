@@ -21,7 +21,7 @@ namespace MobileApp
             if (!userProfileCreated)
                 MainPage = new NavigationPage(new MainPage());
             else
-                MainPage = new NavigationPage(new Queries());
+                MainPage = new NavigationPage(new HomePage());
         }
 
         public static IQueriesService GetQueringService()

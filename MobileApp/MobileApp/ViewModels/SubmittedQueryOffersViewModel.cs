@@ -1,5 +1,5 @@
 ﻿using MobileApp.Models;
-using MobileApp.Views;
+using MobileApp.Views.SubmittedQueries;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;

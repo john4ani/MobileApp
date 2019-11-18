@@ -3,12 +3,12 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.Views
+namespace MobileApp.Views.CreateQuery
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CreateTaxiQuery : ContentPage
+	public partial class CreatePearToPearQuery : ContentPage
 	{
-		public CreateTaxiQuery ()
+		public CreatePearToPearQuery()
 		{
 			InitializeComponent ();
 		}
@@ -17,15 +17,15 @@ namespace MobileApp.Views
         {
             var query = new Query
             {
-                Name = queryFrom.Text + " - " + queryTo.Text,
+                Name = queryGroceryList.Text,
                 Description = queryDescription.Text,
-                Category = "Taxi",
+                Category = "PearToPear",
                 EventDate = queryDate.Date + queryTime.Time,
                 UserId = App.GetUserService().GetLoggedInUserAsync().Result.Id,
                 Id = Guid.NewGuid().ToString()
             };
             await App.GetQueringService().MakeQuery(query);
-            await Navigation.PushAsync(new Queries());
+            await Navigation.PushAsync(new HomePage());
         }
     }
 }

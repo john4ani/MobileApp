@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.ReceivedOfferTakeAction"
+             x:Class="MobileApp.Views.SubmittedQueries.ReceivedOfferTakeAction"
              Title="Take Action On Received Offer"
              NavigationPage.HasBackButton="True" 
              NavigationPage.HasNavigationBar="True"

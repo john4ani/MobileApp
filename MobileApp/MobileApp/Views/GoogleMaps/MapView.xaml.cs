@@ -9,7 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.Views
+namespace MobileApp.Views.GoogleMaps
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MapView : ContentPage

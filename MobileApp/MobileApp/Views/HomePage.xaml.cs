@@ -1,14 +1,15 @@
 ﻿using MobileApp.ViewModels;
-using MobileApp.Views;
+using MobileApp.Views.CreateQuery;
+using MobileApp.Views.GoogleMaps;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Queries : TabbedPage
+    public partial class HomePage : TabbedPage
     {
-        public Queries()
+        public HomePage()
         {
             InitializeComponent();
             BindingContext = new QueriesViewModel(Navigation);
@@ -22,7 +23,7 @@ namespace MobileApp.Views
 
         private void NewQueryButton_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new QueryCategoriesPage());
+            Navigation.PushAsync(new SelectQueryCategory());
         }
 
         private void ManageSubscriptionsButton_Clicked(object sender, System.EventArgs e)

@@ -3,7 +3,7 @@ using MobileApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp.Views
+namespace MobileApp.Views.ReceivedQueries
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MakeOfferForReceivedQuery : TabbedPage

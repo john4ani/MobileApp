@@ -1,19 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.CreateDrugsQuery"
-             Title="Create Drugs Query">
+             x:Class="MobileApp.Views.CreateQuery.CreateTaxiQuery"
+             Title="Create Taxi Query">
     <ContentPage.Content>
         <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
             <!--<Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
             
-            <Label TextColor="Black" FontAttributes="Bold" Text="What drugs you need" FlexLayout.AlignSelf="Center" FontSize="20"/>
-            <Entry x:Name="queryDrugsList" ReturnType="Next" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
-            <Label TextColor="Black" FontAttributes="Bold" Text="Do you have prescription for drugs?" FlexLayout.AlignSelf="Center" FontSize="20"/>
-            <CheckBox x:Name="queryPrescription" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  />
-            <Label TextColor="Black" FontAttributes="Bold" Text="Do you need this to be delivered to you?" FlexLayout.AlignSelf="Center" FontSize="20"/>
-            <CheckBox x:Name="queryDelivery" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  />
-            <Label TextColor="Black" FontAttributes="Bold" Text="When do you need these?" FlexLayout.AlignSelf="Center" FontSize="20"/>
+            <Label TextColor="Black" FontAttributes="Bold" Text="You travel from:" FlexLayout.AlignSelf="Center" FontSize="20"/>
+            <Entry x:Name="queryFrom" ReturnType="Next" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+            <Label TextColor="Black" FontAttributes="Bold" Text="You travel to:" FlexLayout.AlignSelf="Center" FontSize="20"/>
+            <Entry x:Name="queryTo" ReturnType="Next" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+            
+            <Label TextColor="Black" FontAttributes="Bold" Text="When do you travel?" FlexLayout.AlignSelf="Center" FontSize="20"/>
             <StackLayout Orientation="Horizontal">
                 <DatePicker x:Name="queryDate" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  />
                 <TimePicker x:Name="queryTime" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  />
