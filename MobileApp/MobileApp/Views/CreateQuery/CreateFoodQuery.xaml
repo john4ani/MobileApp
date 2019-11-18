@@ -9,7 +9,10 @@
             <Label TextColor="Black" FontAttributes="Bold" Text="What do you want to eat?" FlexLayout.AlignSelf="Center" FontSize="20"/>
             <Entry x:Name="queryName" ReturnType="Next" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
             <Label TextColor="Black" FontAttributes="Bold" Text="Do you need this to be delivered to you?" FlexLayout.AlignSelf="Center" FontSize="20"/>
-            <CheckBox x:Name="queryDelivery" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  />
+            <StackLayout Orientation="Horizontal" FlexLayout.AlignSelf="Stretch">
+                <CheckBox x:Name="queryDelivery" FlexLayout.AlignSelf="Auto"  HorizontalOptions="CenterAndExpand" CheckedChanged="QueryDelivery_CheckedChanged"  />
+                <Entry x:Name="queryDeliveryAddress" IsVisible="False" ReturnType="Next" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+            </StackLayout>            
             <Label TextColor="Black" FontAttributes="Bold" Text="When do you need these?" FlexLayout.AlignSelf="Center" FontSize="20"/>
             <StackLayout Orientation="Horizontal">
                 <DatePicker x:Name="queryDate" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  />

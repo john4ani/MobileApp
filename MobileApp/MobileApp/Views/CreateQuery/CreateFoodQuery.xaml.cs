@@ -11,7 +11,9 @@ namespace MobileApp.Views.CreateQuery
 		public CreateFoodQuery ()
 		{
 			InitializeComponent ();
-		}
+            queryDeliveryAddress.Text = App.GetUserService().GetLoggedInUserAsync().Result.CurrentAddress;
+
+        }
 
         private async void SubmitQuery_ButtonClicked(object sender, EventArgs e)
         {
@@ -22,10 +24,17 @@ namespace MobileApp.Views.CreateQuery
                 Category = "Food",
                 EventDate = queryDate.Date + queryTime.Time,
                 UserId = App.GetUserService().GetLoggedInUserAsync().Result.Id,
-                Id = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString(),
+                NeedsDelivery = queryDelivery.IsChecked,
+                DeliveryAddress = queryDeliveryAddress.Text
             };
             await App.GetQueringService().MakeQuery(query);
             await Navigation.PushAsync(new HomePage());
+        }
+
+        private void QueryDelivery_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            queryDeliveryAddress.IsVisible = e.Value;            
         }
     }
 }

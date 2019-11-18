@@ -13,6 +13,7 @@ namespace MobileApp.ViewModels
         public MakeOfferForReceivedQueryViewModel(Query item, INavigation navigation) : base(navigation)
         {
             _receivedQuery = item;
+            ReceivedQueryUser = App.GetUserService().GetUserAsync(item.UserId).Result;
             Price = 0;
             MakeOfferCommand = new Command<Offer>(ExecuteMakeOffer, CanExecuteMakeOffer);
         }
@@ -32,6 +33,7 @@ namespace MobileApp.ViewModels
             }
         }
 
+        public User ReceivedQueryUser { get; set; }
 
         public Query ReceivedQuery
         {
@@ -49,7 +51,7 @@ namespace MobileApp.ViewModels
         {
 
             var newBid = await App.GetQueringService().MakeSubmittedQueryOffer(
-                new QueryOffer{ QueryId = _receivedQuery.Id, OfferPrice = Price, Description = "Offer for " + _receivedQuery.Name, Bidder = App.GetUserService().GetLoggedInUserAsync().Result.DisplayName });
+                new QueryOffer{ QueryId = _receivedQuery.Id, OfferPrice = Price, Description = "Offer for " + _receivedQuery.Name, UserId = App.GetUserService().GetLoggedInUserAsync().Result.Id });
 
             MessagingCenter.Send(this, Constants.MSG_ITEMUPDATED, ReceivedQuery);
 

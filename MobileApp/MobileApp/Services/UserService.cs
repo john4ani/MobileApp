@@ -69,5 +69,13 @@ namespace MobileApp.Services
         {
             return _loggedInUser;
         }
+
+        public async Task<User> GetUserAsync(string userId)
+        {
+            var table = _azClient.GetTable<User>();
+            var query = table.Where(x => x.Id == userId);
+            var existingUsers = await table.ReadAsync(query);
+            return existingUsers.First();
+        }
     }
 }

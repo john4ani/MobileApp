@@ -15,7 +15,7 @@
         <AbsoluteLayout Margin="5,0,5,5">
             <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
                 <!--<Image Source="hakuna.png" HeightRequest="60" WidthRequest="60" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
-                <Entry x:Name="DisplayNameEntry" ReturnType="Next" MaxLength="10" Placeholder="Display Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
+                <Entry x:Name="DisplayNameEntry" ReturnType="Next" MaxLength="100" Placeholder="Display Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
                 <Entry x:Name="EmailEntry" Placeholder="Email" ReturnType="Next" Keyboard="Email" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" >
                     <!--<Entry.Behaviors>
                         <local:EmailValidationBehavior></local:EmailValidationBehavior>
@@ -23,6 +23,7 @@
                 </Entry>
                 <Entry x:Name="PasswordEntry" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
                 <Entry x:Name="ConfirmpasswordEntry" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Confirm Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+                <Entry x:Name="AddressEntry" ReturnType="Next" MaxLength="1000" Placeholder="Your Address" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
                 <Label x:Name="WarningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15" BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
                 <Button x:Name="Register" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Register"/>
                 <Button TextColor="Black" BackgroundColor="Transparent" Clicked="Login_ClickedEvent" Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />

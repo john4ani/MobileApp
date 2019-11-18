@@ -7,12 +7,17 @@
              NavigationPage.HasNavigationBar="True"
             >
     <ContentPage.Content>
+
         <AbsoluteLayout>
             <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
                 <!--<Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
-                <Button x:Name="AcceptButton" FontSize="Medium" BorderColor="Black" FlexLayout.AlignSelf="Stretch" CornerRadius="5"  Clicked="AcceptButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Accept Offer" TextColor="White" BackgroundColor="#3399ff"/>
+                <Label Text="{Binding Offer.Description}"/>
+                <Label Text="{Binding Offer.Bidder}"/>
+                <Label Text="{Binding Offer.OfferPrice}"/>
+                
+                <Button x:Name="AcceptButton" FontSize="Medium" BorderColor="Black" CornerRadius="5"  Clicked="AcceptButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Accept Offer" TextColor="White" BackgroundColor="#3399ff"/>
                 <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" FlexLayout.AlignSelf="Center"/>
-                <Button x:Name="RejectButton" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  Clicked="RejectButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Report As Irrelevant"/>
+                <Button x:Name="RejectButton" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" Clicked="RejectButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Report As Irrelevant"/>
                 <Label Text=""/>
             </FlexLayout>
         </AbsoluteLayout>

@@ -14,7 +14,7 @@ namespace MobileApp.Models
             UserId = query.UserId;
             Category = query.Category;
             Description = query.Description;
-            RequireDelivery = query.RequireDelivery;
+            NeedsDelivery = query.NeedsDelivery;
             EventDate = query.EventDate;
         }
         public int OffersCount { get; set; }

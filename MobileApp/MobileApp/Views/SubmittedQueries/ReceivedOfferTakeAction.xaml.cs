@@ -1,5 +1,6 @@
 ﻿using MobileApp.Models;
 using MobileApp.ViewModels;
+using MobileApp.Views.User;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +10,10 @@ namespace MobileApp.Views.SubmittedQueries
     public partial class ReceivedOfferTakeAction : ContentPage
     {
         QueryOffer _offer;
+        public QueryOffer Offer
+        {
+            get { return _offer; }
+        }
         public ReceivedOfferTakeAction(QueryOffer offer, INavigation navigation)
         {
             InitializeComponent();
@@ -28,6 +33,11 @@ namespace MobileApp.Views.SubmittedQueries
             _offer.Status = OfferStatus.Irrelevant;
             await App.GetQueringService().UpdateQueryOfferAsync(_offer);
             await Navigation.PopAsync();
+        }
+
+        private void TextCell_Tapped(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new UserDetails(_offer.UserId));
         }
     }
 }

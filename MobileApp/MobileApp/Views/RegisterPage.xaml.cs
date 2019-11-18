@@ -38,12 +38,13 @@ namespace MobileApp.Views
             }
             else
             {
-                var user = new User
+                var user = new MobileApp.Models.User
                 {
                     Email = EmailEntry.Text,
                     DisplayName = DisplayNameEntry.Text,
                     Password = PasswordEntry.Text,
-                    Id = Guid.NewGuid().ToString()
+                    Id = Guid.NewGuid().ToString(),
+                    CurrentAddress = AddressEntry.Text
                 };
 
                 try

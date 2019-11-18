@@ -15,7 +15,10 @@
                             <TableSection Title="Item Details">
                                 <TextCell Text="{Binding ReceivedQuery.Name}" Detail="{Binding ReceivedQuery.Description}"></TextCell>                                
                             </TableSection>
-                            <TableSection Title="Offer">
+                            <TableSection Title="User Details">
+                                <TextCell Text="{Binding ReceivedQueryUser.DisplayName}" Detail="{Binding ReceivedQuery.DeliveryAddress}" Tapped="TextCell_Tapped"></TextCell>
+                            </TableSection>
+                            <TableSection Title="Offer" >
                                 <EntryCell Keyboard="Numeric" Label="Your Offer:" Text="{Binding Price, Mode=TwoWay}"></EntryCell>
                             </TableSection>
                         </TableRoot>
@@ -43,6 +46,7 @@
 
                     <Label Text="{Binding ReceivedQuery.Name}" TextColor="Color.Accent" Font="Bold,Medium" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
                     <Label Text="{Binding ReceivedQuery.Description}" Font="Italic,Medium" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
+                    <Label Text="{Binding ReceivedQuery.DeliveryAddress, StringFormat='Needs to be delivered at {0} .'}" IsVisible="{Binding ReceivedQuery.NeedsDelivery}" Font="Italic,Medium" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" />
 
                     <Label  Font="Bold,Large" Text="Your Offer:" Grid.Row="6" Grid.Column="0"/>
                     <StackLayout Orientation="Horizontal" Grid.Row="6" Grid.Column="1" VerticalOptions="Center">

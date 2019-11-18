@@ -18,7 +18,7 @@ namespace MobileApp.Services
                 {
                     Id = "a",
                     DisplayName = "User A",
-                    CurrentAddress = "a",
+                    CurrentAddress = "Marginea 1960, Suceava",
                     Password = "a",
                     Email = "a"
                 }
@@ -56,6 +56,11 @@ namespace MobileApp.Services
         public async Task<User> GetLoggedInUserAsync()
         {
             return _loggedInUser;
+        }
+
+        public async Task<User> GetUserAsync(string userId)
+        {
+            return _azClient.FirstOrDefault(u => u.Id == userId);
         }
     }
 }
