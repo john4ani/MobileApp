@@ -103,8 +103,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\AppIcon.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    <Content Include="AppIcon.png">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Assets\LargeTile.scale-100.png" />

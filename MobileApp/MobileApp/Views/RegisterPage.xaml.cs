@@ -1,6 +1,4 @@
-﻿using MobileApp.Models;
-using System;
-using System.Diagnostics;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,8 +9,7 @@ namespace MobileApp.Views
     {
         public RegisterPage()
         {
-            InitializeComponent();
-            NavigationPage.SetHasBackButton(this, false);
+            InitializeComponent();            
 
             DisplayNameEntry.ReturnCommand = new Command(() => EmailEntry.Focus());
             EmailEntry.ReturnCommand = new Command(() => PasswordEntry.Focus());
@@ -28,6 +25,10 @@ namespace MobileApp.Views
             {
                 await DisplayAlert("Enter Data", "Enter Valid Data", "OK");
             }
+            else if(RepresentingBusiness.IsChecked && (string.IsNullOrEmpty(BusinessNameEntry.Text) || string.IsNullOrEmpty(BusinessRegNoEntry.Text)))
+            {
+                await DisplayAlert("Enter Business Data", "When representing a business, your Business Name and Business Registration Number are mandatory.", "OK");
+            }
             else if (!string.Equals(PasswordEntry.Text, ConfirmpasswordEntry.Text))
             {
                 WarningLabel.Text = "Enter Same Password";
@@ -38,7 +39,7 @@ namespace MobileApp.Views
             }
             else
             {
-                var user = new MobileApp.Models.User
+                var user = new Models.User
                 {
                     Email = EmailEntry.Text,
                     DisplayName = DisplayNameEntry.Text,
@@ -75,6 +76,11 @@ namespace MobileApp.Views
         private async void Login_ClickedEvent(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());
+        }
+
+        private void OnRepresentingBusinessClicked(object sender, CheckedChangedEventArgs e)
+        {
+            BussinessFields.IsVisible = e.Value;
         }
     }
 }

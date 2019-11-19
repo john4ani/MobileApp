@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.LoginPage"
              x:Name="LoginPageName"
-             Title="WAYF Login"
+             Title="WAYF App Login"
              NavigationPage.HasBackButton="True" 
              NavigationPage.HasNavigationBar="True"
              >
@@ -11,7 +11,7 @@
         <ScrollView>
             <AbsoluteLayout x:Name="absLayout" Margin="5,0" IsVisible="True">
                 <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
-                    <!--<Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
+                    <Image Source="AppIcon.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />
                     <Label TextColor="Black" FontAttributes="Bold" Text="LOGIN" FlexLayout.AlignSelf="Center" FontSize="20"/>
                     <Entry x:Name="userNameEntry" ReturnType="Next" Placeholder="Email ID" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
                     <Entry x:Name="passwordEntry" ReturnType="Done" IsPassword="True" Placeholder="Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />

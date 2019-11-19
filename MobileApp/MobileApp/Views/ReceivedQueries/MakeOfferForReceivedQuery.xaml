@@ -13,7 +13,15 @@
                     <TableView.Root>
                         <TableRoot Title="Make Offer">
                             <TableSection Title="Item Details">
-                                <TextCell Text="{Binding ReceivedQuery.Name}" Detail="{Binding ReceivedQuery.Description}"></TextCell>                                
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" Padding="10">
+                                        <Label Text="{Binding ReceivedQuery.Name}" />
+                                        <Label Text="{Binding ReceivedQuery.Description}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </TableSection>
+                            <TableSection Title="Offer Description" >
+                                <EntryCell Keyboard="Text" Label="Offer Details:" Text="{Binding ReceivedQuery.Description, Mode=TwoWay}"></EntryCell>
                             </TableSection>
                             <TableSection Title="User Details">
                                 <TextCell Text="{Binding ReceivedQueryUser.DisplayName}" Detail="{Binding ReceivedQuery.DeliveryAddress}" Tapped="TextCell_Tapped"></TextCell>

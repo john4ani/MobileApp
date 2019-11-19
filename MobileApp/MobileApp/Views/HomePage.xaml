@@ -31,11 +31,11 @@
                         </OnPlatform>
                     </ActivityIndicator.IsRunning>
                 </ActivityIndicator>
-                <ListView ItemsSource="{Binding SubmittedQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshSubmittedQueries}" IsRefreshing="{Binding IsLoading}">
+                <ListView ItemsSource="{Binding SubmittedQueries}" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshSubmittedQueries}" IsRefreshing="{Binding IsLoading}">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate> 
                             <ViewCell>
-                                <Grid>
+                                <Grid Padding="10" >
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="7*" />
                                         <ColumnDefinition Width="3*" />
@@ -53,7 +53,7 @@
                         <beh:ListViewSelectedItemBehavior Command="{Binding SelectSubmittedQuery}" Converter="{StaticResource SelectedItemConverter}" />
                     </ListView.Behaviors>
                 </ListView>
-                <Button x:Name="NewQueryButton" Clicked="NewQueryButton_Clicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="New Query"/>
+                <Button x:Name="NewQueryButton" Clicked="NewQueryButton_Clicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Create New Query"/>
             </StackLayout>
         </ContentPage>
         <ContentPage Title="Received Queries">
@@ -61,7 +61,12 @@
                 <ListView ItemsSource="{Binding ReceivedQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshReceivedQueries}" IsRefreshing="{Binding IsLoading}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <Label Text="{Binding Name}" />
+                                    <Label Text="{Binding Description}" />
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.Behaviors>

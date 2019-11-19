@@ -11,7 +11,6 @@ namespace MobileApp.Views
         {
             InitializeComponent();
             
-            NavigationPage.SetHasBackButton(this, false);
             userNameEntry.ReturnCommand = new Command(() => passwordEntry.Focus());
             firstPassword.ReturnCommand = new Command(() => secondPassword.Focus());
             var forgetpassword_tap = new TapGestureRecognizer();

@@ -13,7 +13,6 @@ namespace MobileApp
         public MainPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this.FirstPage, true);
         }
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {

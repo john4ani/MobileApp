@@ -14,7 +14,7 @@
     </ContentPage.Resources>
     <StackLayout Orientation="Vertical">
         <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></ActivityIndicator>
-        <ListView ItemsSource="{Binding Items}"  IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsLoading}">
+        <ListView ItemsSource="{Binding Items}" HasUnevenRows="true"  IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsLoading}">
             <ListView.RowHeight>
                 <OnPlatform x:TypeArguments="x:Int32">
                     <!--<On Platform="iOS" Value="50" />-->
@@ -25,13 +25,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Padding="10,5,10,5" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout Padding="10,5,10,5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" >
-                                    <Label Text="{Binding Bidder}">
-                                        <Label.FontSize>
-                                            <!--<OnIdiom x:TypeArguments="x:String" Phone="11" Tablet="15" />-->
-                                        </Label.FontSize>
-                                    </Label>
                                     <Label Text="{Binding Description}">
                                         <Label.LineBreakMode>
                                             <OnIdiom x:TypeArguments="LineBreakMode" Phone="TailTruncation" Tablet="MiddleTruncation" />
@@ -40,6 +35,11 @@
                                             <!--<OnIdiom x:TypeArguments="x:String" Phone="8" Tablet="12" />-->
                                         </Label.FontSize>
                                     </Label>
+                                    <Label Text="{Binding Bidder}">
+                                        <Label.FontSize>
+                                            <!--<OnIdiom x:TypeArguments="x:String" Phone="11" Tablet="15" />-->
+                                        </Label.FontSize>
+                                    </Label>                                    
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical" HorizontalOptions="End" >
                                     <Label Text="{Binding OfferPrice, StringFormat='Price: {0:c}'}">

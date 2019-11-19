@@ -14,13 +14,21 @@
     <ContentPage.Content>
         <AbsoluteLayout Margin="5,0,5,5">
             <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
-                <!--<Image Source="hakuna.png" HeightRequest="60" WidthRequest="60" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
+                <Image Source="AppIcon.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />
                 <Entry x:Name="DisplayNameEntry" ReturnType="Next" MaxLength="100" Placeholder="Display Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
                 <Entry x:Name="EmailEntry" Placeholder="Email" ReturnType="Next" Keyboard="Email" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" >
                     <!--<Entry.Behaviors>
                         <local:EmailValidationBehavior></local:EmailValidationBehavior>
                     </Entry.Behaviors>-->
                 </Entry>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" FlexLayout.AlignSelf="Stretch">
+                    <CheckBox x:Name="RepresentingBusiness"  CheckedChanged="OnRepresentingBusinessClicked" />
+                    <Label Text="Are you representing a Business?" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout x:Name="BussinessFields" Orientation="Vertical" IsVisible="False" FlexLayout.AlignSelf="Stretch">
+                    <Entry x:Name="BusinessNameEntry" ReturnType="Next"  MaxLength="12" Placeholder="Business Name" FontSize="Medium" TextColor="Black" />
+                    <Entry x:Name="BusinessRegNoEntry" ReturnType="Next"  MaxLength="12" Placeholder="Business Registration Number" FontSize="Medium" TextColor="Black" />
+                </StackLayout>
                 <Entry x:Name="PasswordEntry" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
                 <Entry x:Name="ConfirmpasswordEntry" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Confirm Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
                 <Entry x:Name="AddressEntry" ReturnType="Next" MaxLength="1000" Placeholder="Your Address" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
