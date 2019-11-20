@@ -2,24 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.SubmittedQueries.ReceivedOfferTakeAction"
-             Title="Take Action On Received Offer"
+             Title="Take Action On Offer"
              NavigationPage.HasBackButton="True" 
              NavigationPage.HasNavigationBar="True"
             >
     <ContentPage.Content>
+        <StackLayout>
+            <TableView Intent="Data">
+                <TableView.Root>
+                    <TableRoot >
+                        <TableSection Title="Offer Details">
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <Label Text="{Binding Offer.Description}" />
+                                    <Label Text="{Binding Offer.OfferPrice}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                        <TableSection Title="Offer Description" >
+                            <EntryCell Keyboard="Text" Label="Offer Details:" Text="{Binding ReceivedQuery.Description, Mode=TwoWay}"></EntryCell>
+                        </TableSection>
+                        <TableSection Title="User Details">
+                            <TextCell Text="{Binding Offer.UserId}" Detail="{Binding Offer.User}" Command="{Binding ShowUserDetails}"></TextCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
 
-        <AbsoluteLayout>
-            <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
-                <!--<Image Source="hakuna.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />-->
-                <Label Text="{Binding Offer.Description}"/>
-                <Label Text="{Binding Offer.Bidder}"/>
-                <Label Text="{Binding Offer.OfferPrice}"/>
-                
-                <Button x:Name="AcceptButton" FontSize="Medium" BorderColor="Black" CornerRadius="5"  Clicked="AcceptButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Accept Offer" TextColor="White" BackgroundColor="#3399ff"/>
-                <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" FlexLayout.AlignSelf="Center"/>
-                <Button x:Name="RejectButton" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" Clicked="RejectButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Report As Irrelevant"/>
-                <Label Text=""/>
-            </FlexLayout>
-        </AbsoluteLayout>
+            <StackLayout IsVisible="True" Orientation="Horizontal" >
+                <Button x:Name="AcceptButton" FontSize="Medium" BorderColor="Black" CornerRadius="5" Command="{Binding AcceptOffer}" HorizontalOptions="CenterAndExpand" Text="Accept" TextColor="White" BackgroundColor="#3399ff"/>
+                <Button x:Name="RejectButton" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" Clicked="RejectButton_Clicked" HorizontalOptions="CenterAndExpand" Text="Reject"/>            
+            </StackLayout>            
+        </StackLayout>
     </ContentPage.Content>
- </ContentPage>
+</ContentPage>

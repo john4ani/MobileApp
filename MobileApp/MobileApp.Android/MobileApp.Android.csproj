@@ -108,10 +108,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Assets\AppIcon.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    <AndroidAsset Include="Assets\AppIcon.png">
       <SubType>Designer</SubType>
-    </AndroidResource>
+    </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MobileApp\MobileApp.csproj">

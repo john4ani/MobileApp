@@ -1,21 +1,20 @@
 ﻿using MobileApp.Models;
-using System.ComponentModel;
+using MobileApp.Views.User;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace MobileApp.ViewModels
 {
-    public class ReceivedOfferTakeActionViewModel
-    : ViewModelBase, INotifyPropertyChanged
+    public class ReceivedOfferTakeActionViewModel : ViewModelBase
     {
         private QueryOffer _offer;
 
         public ReceivedOfferTakeActionViewModel(QueryOffer offer, INavigation navigation) : base(navigation)
         {
             _offer = offer;
-            AcceptOfferCommand = new Command<Offer>(ExecuteAcceptOffer, CanExecuteAcceptOffer);
+            AcceptOffer = new Command(ExecuteAcceptOffer);
+            ShowUserDetails = new Command(ExecuteShowUserDetails);
         }       
-
 
         public QueryOffer Offer
         {
@@ -23,27 +22,28 @@ namespace MobileApp.ViewModels
             set
             {
                 _offer = value;
-                NotifyPropertyChanged("Offer");
+                NotifyPropertyChanged(nameof(Offer));
             }
         }
 
-        public ICommand AcceptOfferCommand { get; private set; }
+        public ICommand AcceptOffer { get; private set; }
+        public ICommand ShowUserDetails { get; private set; }
 
-        public async void ExecuteAcceptOffer(Offer parameter)
+        public async void ExecuteAcceptOffer(object parameter)
         {
-            //#TODO
-            //var newBid = await App.GetQueringService().MakeSubmittedQueryOffer(
-            //    new SubmittedQueryOffer{ SubmittedQueryId = _receivedQuery.Id, OfferPrice = Price });
-
+            _offer.Status = OfferStatus.Accepted;
+            await App.GetQueringService().UpdateQueryOfferAsync(_offer);
+            
             MessagingCenter.Send(this, Constants.MSG_ITEMUPDATED, Offer);
 
             //move back to the page they were on before bidding
             await Navigation.PopAsync();
 
         }
-        public bool CanExecuteAcceptOffer(Offer parameter)
+
+        private async void ExecuteShowUserDetails(object obj)
         {
-            return true;
+           await  Navigation.PushAsync(new UserDetails(_offer.UserId));
         }
     }
 }
