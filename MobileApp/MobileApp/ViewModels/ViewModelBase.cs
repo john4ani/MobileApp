@@ -12,9 +12,11 @@ namespace MobileApp.ViewModels
             _navigation = navigation;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public INavigation Navigation { get { return _navigation; } }
 
         private bool _isLoading;
-
         public bool IsLoading
         {
             get { return _isLoading; }
@@ -29,8 +31,6 @@ namespace MobileApp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public INavigation Navigation { get { return _navigation; } }
+        
     }
 }

@@ -1,12 +1,10 @@
 ﻿using MobileApp.Models;
-using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace MobileApp.ViewModels
 {
-    public class MakeOfferForReceivedQueryViewModel
-    : ViewModelBase, INotifyPropertyChanged
+    public class MakeOfferForReceivedQueryViewModel : ViewModelBase
     {
         private Query _receivedQuery;
 
@@ -18,6 +16,9 @@ namespace MobileApp.ViewModels
             MakeOfferCommand = new Command<Offer>(ExecuteMakeOffer, CanExecuteMakeOffer);
         }
 
+        public ICommand MakeOfferCommand { get; private set; }
+
+        public User ReceivedQueryUser { get; set; }
 
         private double _price;
         public double Price
@@ -28,12 +29,10 @@ namespace MobileApp.ViewModels
                 if (_price != value)
                 {
                     _price = value;
-                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged(nameof(Price));
                 }
             }
-        }
-
-        public User ReceivedQueryUser { get; set; }
+        }        
 
         public Query ReceivedQuery
         {
@@ -41,16 +40,19 @@ namespace MobileApp.ViewModels
             set
             {
                 _receivedQuery = value;
-                NotifyPropertyChanged("ReceivedQuery");
+                NotifyPropertyChanged(nameof(ReceivedQuery));
             }
         }
 
-        public ICommand MakeOfferCommand { get; private set; }
+        private bool CanExecuteMakeOffer(Offer parameter)
+        {
+            return true;
+        }
 
-        public async void ExecuteMakeOffer(Offer parameter)
+        private async void ExecuteMakeOffer(Offer parameter)
         {
 
-            var newBid = await App.GetQueringService().MakeSubmittedQueryOffer(
+            var newBid = await App.GetQueriesService().MakeSubmittedQueryOffer(
                 new QueryOffer{ QueryId = _receivedQuery.Id, OfferPrice = Price, Description = "Offer for " + _receivedQuery.Name, UserId = App.GetUserService().GetLoggedInUserAsync().Result.Id });
 
             MessagingCenter.Send(this, Constants.MSG_ITEMUPDATED, ReceivedQuery);
@@ -58,10 +60,6 @@ namespace MobileApp.ViewModels
             //move back to the page they were on before bidding
             await Navigation.PopAsync();
 
-        }
-        public bool CanExecuteMakeOffer(Offer parameter)
-        {
-            return true;
-        }
+        }        
     }
 }

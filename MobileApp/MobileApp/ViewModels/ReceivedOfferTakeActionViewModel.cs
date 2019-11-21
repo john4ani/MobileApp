@@ -32,7 +32,7 @@ namespace MobileApp.ViewModels
         public async void ExecuteAcceptOffer(object parameter)
         {
             _offer.Status = OfferStatus.Accepted;
-            await App.GetQueringService().UpdateQueryOfferAsync(_offer);
+            await App.GetQueriesService().UpdateQueryOfferAsync(_offer);
             
             MessagingCenter.Send(this, Constants.MSG_ITEMUPDATED, Offer);
 

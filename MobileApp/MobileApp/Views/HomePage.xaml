@@ -58,7 +58,7 @@
         </ContentPage>
         <ContentPage Title="Received Queries">
             <StackLayout Orientation="Vertical" VerticalOptions="Start">
-                <ListView ItemsSource="{Binding ReceivedQueries}" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshReceivedQueries}" IsRefreshing="{Binding IsLoading}">
+                <ListView ItemsSource="{Binding ReceivedQueries}" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshReceivedQueries}" IsRefreshing="{Binding IsLoading}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

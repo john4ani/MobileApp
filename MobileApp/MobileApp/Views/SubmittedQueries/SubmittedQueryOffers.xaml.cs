@@ -13,7 +13,7 @@ namespace MobileApp.Views.SubmittedQueries
 			InitializeComponent ();
 		}
 
-        public SubmittedQueryOffers(Query query, INavigation navigation) : this()
+        public SubmittedQueryOffers(SubmittedQueryViewModel query, INavigation navigation) : this()
         {
             this.BindingContext = new SubmittedQueryOffersViewModel(query, navigation);
         }

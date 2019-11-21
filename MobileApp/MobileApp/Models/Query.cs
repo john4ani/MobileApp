@@ -3,7 +3,7 @@
 
 namespace MobileApp.Models
 {
-    public class Query
+    public class Query : IQuery
     {
         public string Id { get; set; }
         public string UserId { get; set; }

@@ -11,10 +11,10 @@ namespace MobileApp.ViewModels
 {
     public class SubmittedQueryOffersViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private Query _submittedQuery;
+        private SubmittedQueryViewModel _submittedQuery;
         private ObservableCollection<QueryOffer> _offers;
 
-        public SubmittedQueryOffersViewModel(Query submittedQuery, INavigation navigation) : base(navigation)
+        public SubmittedQueryOffersViewModel(SubmittedQueryViewModel submittedQuery, INavigation navigation) : base(navigation)
         {
             _submittedQuery = submittedQuery;
             TakeActionOnReceivedOffer = new Command<QueryOffer>(ActionOnReceivedOffer);
@@ -60,7 +60,7 @@ namespace MobileApp.ViewModels
 
             IsLoading = true;
 
-            var offers = await App.GetQueringService().GetSubmittedQueryOffers(_submittedQuery.Id);
+            var offers = await App.GetQueriesService().GetSubmittedQueryOffers(_submittedQuery.Id);
             Items = new ObservableCollection<QueryOffer>(offers);
 
             IsLoading = false;

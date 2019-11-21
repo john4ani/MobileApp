@@ -9,6 +9,7 @@ namespace MobileApp
     {
         private static IQueriesService _queriesService;
         private static IUserService _userService;
+        private static IBusinessService _businessService;
 
         public App()
         {
@@ -24,7 +25,7 @@ namespace MobileApp
                 MainPage = new NavigationPage(new HomePage());
         }
 
-        public static IQueriesService GetQueringService()
+        public static IQueriesService GetQueriesService()
         {
             return _queriesService;
         }
@@ -32,6 +33,11 @@ namespace MobileApp
         public static IUserService GetUserService()
         {
             return _userService;
+        }
+
+        public static IBusinessService GetBusinessService()
+        {
+            return _businessService;
         }
 
         protected override void OnStart()

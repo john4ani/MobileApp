@@ -24,7 +24,7 @@ namespace MobileApp.Views.CreateQuery
                 UserId = App.GetUserService().GetLoggedInUserAsync().Result.Id,
                 Id = Guid.NewGuid().ToString()
             };
-            await App.GetQueringService().MakeQuery(query);
+            await App.GetQueriesService().MakeQuery(query);
             await Navigation.PushAsync(new HomePage());
         }
     }

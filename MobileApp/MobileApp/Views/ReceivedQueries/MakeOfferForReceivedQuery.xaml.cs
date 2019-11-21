@@ -7,13 +7,13 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views.ReceivedQueries
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MakeOfferForReceivedQuery : TabbedPage
+    public partial class MakeOfferForReceivedQuery : ContentPage
     {
         private string _userId;
         public MakeOfferForReceivedQuery(Query query, INavigation navigation)
         {
             InitializeComponent();
-            this.BindingContext = new MakeOfferForReceivedQueryViewModel(query, navigation);
+            BindingContext = new MakeOfferForReceivedQueryViewModel(query, navigation);
             _userId = query.UserId;
         }
 

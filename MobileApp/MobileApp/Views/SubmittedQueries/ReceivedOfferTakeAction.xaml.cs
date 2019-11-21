@@ -19,7 +19,7 @@ namespace MobileApp.Views.SubmittedQueries
         private async void RejectButton_Clicked(object sender, System.EventArgs e)
         {
             //_offer.Status = OfferStatus.Irrelevant;
-            //await App.GetQueringService().UpdateQueryOfferAsync(_offer);
+            //await App.GetQueriesService().UpdateQueryOfferAsync(_offer);
             await Navigation.PopAsync();
         }
     }

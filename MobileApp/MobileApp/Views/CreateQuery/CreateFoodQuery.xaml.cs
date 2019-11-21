@@ -28,7 +28,7 @@ namespace MobileApp.Views.CreateQuery
                 NeedsDelivery = queryDelivery.IsChecked,
                 DeliveryAddress = queryDeliveryAddress.Text
             };
-            await App.GetQueringService().MakeQuery(query);
+            await App.GetQueriesService().MakeQuery(query);
             await Navigation.PushAsync(new HomePage());
         }
 

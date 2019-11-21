@@ -2,39 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.RegisterPage"
-             xmlns:local="clr-namespace:MobileApp"
-             xmlns:vm="clr-namespace:MobileApp.ViewModels"
              Title="Registration Page"
              NavigationPage.HasBackButton="True" 
              NavigationPage.HasNavigationBar="True"
-             >
-    <ContentPage.BindingContext>
-        <vm:RegisterViewModel/>
-    </ContentPage.BindingContext>
+             >   
     <ContentPage.Content>
         <AbsoluteLayout Margin="5,0,5,5">
             <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
                 <Image Source="AppIcon.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />
-                <Entry x:Name="DisplayNameEntry" ReturnType="Next" MaxLength="100" Placeholder="Display Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
-                <Entry x:Name="EmailEntry" Placeholder="Email" ReturnType="Next" Keyboard="Email" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" >
+                <Entry x:Name="DisplayNameEntry" Text="{Binding DisplayName}" ReturnType="Next" MaxLength="100" Placeholder="Display Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
+                <Entry x:Name="EmailEntry" Text="{Binding Email}" Placeholder="Email" ReturnType="Next" Keyboard="Email" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" >
                     <!--<Entry.Behaviors>
                         <local:EmailValidationBehavior></local:EmailValidationBehavior>
                     </Entry.Behaviors>-->
                 </Entry>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" FlexLayout.AlignSelf="Stretch">
-                    <CheckBox x:Name="RepresentingBusiness"  CheckedChanged="OnRepresentingBusinessClicked" />
-                    <Label Text="Are you representing a Business?" FontSize="Medium"/>
+                    <CheckBox x:Name="RepresentingBusiness" IsChecked="{Binding RepresentingBusiness}" />
+                    <Label Text="Representing a Business?" FontSize="Medium"/>
                 </StackLayout>
-                <StackLayout x:Name="BussinessFields" Orientation="Vertical" IsVisible="False" FlexLayout.AlignSelf="Stretch">
-                    <Entry x:Name="BusinessNameEntry" ReturnType="Next"  MaxLength="12" Placeholder="Business Name" FontSize="Medium" TextColor="Black" />
-                    <Entry x:Name="BusinessRegNoEntry" ReturnType="Next"  MaxLength="12" Placeholder="Business Registration Number" FontSize="Medium" TextColor="Black" />
+                <StackLayout x:Name="BussinessFields" Orientation="Vertical" IsVisible="{Binding RepresentingBusiness}" FlexLayout.AlignSelf="Stretch">
+                    <Entry x:Name="BusinessNameEntry" Text="{Binding BusinessName}" ReturnType="Next"  MaxLength="12" Placeholder="Business Name" FontSize="Medium" TextColor="Black" />
+                    <Entry x:Name="BusinessRegNoEntry" Text="{Binding BusinessRegistrationNumber}" ReturnType="Next"  MaxLength="12" Placeholder="Business Registration Number" FontSize="Medium" TextColor="Black" />
                 </StackLayout>
-                <Entry x:Name="PasswordEntry" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
-                <Entry x:Name="ConfirmpasswordEntry" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Confirm Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
-                <Entry x:Name="AddressEntry" ReturnType="Next" MaxLength="1000" Placeholder="Your Address" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
-                <Label x:Name="WarningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15" BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
-                <Button x:Name="Register" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Register"/>
-                <Button TextColor="Black" BackgroundColor="Transparent" Clicked="Login_ClickedEvent" Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />
+                <StackLayout x:Name="OnlineBusiness" IsVisible="{Binding RepresentingBusiness}" Orientation="Horizontal" HorizontalOptions="StartAndExpand" FlexLayout.AlignSelf="Stretch">
+                    <CheckBox IsChecked="{Binding OnlineBusiness}"  />
+                    <Label Text="Is your Business online only?" FontSize="Medium"/>
+                </StackLayout>
+                <Entry x:Name="AddressEntry" Text="{Binding Address}" ReturnType="Next" MaxLength="1000" Placeholder="{Binding AddressPlaceholder}" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
+                <Entry x:Name="PasswordEntry" Text="{Binding Password}" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+                <Entry x:Name="ConfirmpasswordEntry" Text="{Binding ConfirmPassword}" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Confirm Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+                <Label x:Name="WarningLabel" Text="{Binding WarningText}" IsVisible="{Binding WarningIsVisible}" TextColor="IndianRed" FontSize="15" BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
+                <Button x:Name="Register" Command="{Binding Register}" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Register"/>
+                <Button TextColor="Black" BackgroundColor="Transparent" Command="{Binding GoToLogin}" Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />
             </FlexLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

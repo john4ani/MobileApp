@@ -15,12 +15,22 @@ namespace MobileApp.ViewModels
         public QueriesViewModel(INavigation navigation) : base(navigation)
         {
             SelectReceivedQuery = new Command<Query>(GoToMakeOfferForReceivedQuery);
-            SelectSubmittedQuery = new Command<Query>(GoToSubmittedQueryOffers);
+            SelectSubmittedQuery = new Command<SubmittedQueryViewModel>(GoToSubmittedQueryOffers);
             
             RefreshSubmittedQueries = new Command(LoadSubmittedQueries);
             RefreshReceivedQueries = new Command(LoadReceivedQueries);
 
-            //MessagingCenter.Subscribe<PlaceBidViewModel, AuctionItem>(this, Constants.MSG_ITEMUPDATED, ItemUpdated);
+            MessagingCenter.Subscribe<MakeOfferForReceivedQueryViewModel, Query>(this, Constants.MSG_ITEMUPDATED, ItemUpdated);
+        }        
+
+        public ICommand RefreshReceivedQueries
+        {
+            get; private set;
+        }
+
+        public ICommand RefreshSubmittedQueries
+        {
+            get; private set;
         }
 
         public ICommand SelectReceivedQuery
@@ -29,31 +39,19 @@ namespace MobileApp.ViewModels
             private set;
         }
 
-        public void GoToMakeOfferForReceivedQuery(Query query)
-        {
-            Navigation.PushAsync(
-                new MakeOfferForReceivedQuery(query, Navigation));
-        }
-
         public ICommand SelectSubmittedQuery
         {
             get;
             private set;
-        }
+        }        
 
-        public void GoToSubmittedQueryOffers(Query query)
-        {
-            Navigation.PushAsync(
-                new SubmittedQueryOffers(query, Navigation));
-        }
-
-        private ObservableCollection<SubmittedQuery> _submittedQueries;
-        public ObservableCollection<SubmittedQuery> SubmittedQueries
+        private ObservableCollection<SubmittedQueryViewModel> _submittedQueries;
+        public ObservableCollection<SubmittedQueryViewModel> SubmittedQueries
         {
             get { return _submittedQueries; }
             set {
                 _submittedQueries = value;
-                NotifyPropertyChanged("SubmittedQueries");
+                NotifyPropertyChanged(nameof(SubmittedQueries));
             }
         }
 
@@ -64,31 +62,47 @@ namespace MobileApp.ViewModels
             set
             {
                 _receivedQueries = value;
-                NotifyPropertyChanged("ReceivedQueries");
+                NotifyPropertyChanged(nameof(ReceivedQueries));
             }
         }
 
         public void Load()
         {
             if (_submittedQueries == null)
-                LoadSubmittedQueries(null);
+                LoadSubmittedQueries();
             if (_receivedQueries == null)
-                LoadReceivedQueries(null);
+                LoadReceivedQueries();
         }
 
-        public ICommand RefreshSubmittedQueries
+        private void GoToMakeOfferForReceivedQuery(Query query)
         {
-            get; private set;
+            Navigation.PushAsync(
+                new MakeOfferForReceivedQuery(query, Navigation));
         }
 
-        public async void LoadSubmittedQueries(object p)
+        private void GoToSubmittedQueryOffers(SubmittedQueryViewModel query)
+        {
+            Navigation.PushAsync(
+                new SubmittedQueryOffers(query, Navigation));
+        }
+
+        private void ItemUpdated(MakeOfferForReceivedQueryViewModel arg1, Query arg2)
+        {
+            var submittedQueryViewModel = SubmittedQueries.Where(q => q.Id == arg2.Id).FirstOrDefault();
+            if (submittedQueryViewModel != null)
+            {
+                submittedQueryViewModel.OffersCount++;
+            }
+        }
+
+        private async void LoadSubmittedQueries()
         {
             IsLoading = true;
             try
             {
-                var itemsResult = await App.GetQueringService().GetSubmittedQueries();
-                var submittedQueries = itemsResult.Select(q => new SubmittedQuery(q) { OffersCount = App.GetQueringService().GetSubmittedQueryOffers(q.Id).Result.Count()});
-                SubmittedQueries = new ObservableCollection<SubmittedQuery>(submittedQueries);
+                var itemsResult = await App.GetQueriesService().GetSubmittedQueries();
+                var submittedQueries = itemsResult.Select(q => new SubmittedQueryViewModel(q, Navigation) { OffersCount = App.GetQueriesService().GetSubmittedQueryOffers(q.Id).Result.Count() });
+                SubmittedQueries = new ObservableCollection<SubmittedQueryViewModel>(submittedQueries);
             }
             catch (Exception ex)
             {
@@ -100,17 +114,12 @@ namespace MobileApp.ViewModels
             }
         }
 
-        public ICommand RefreshReceivedQueries
-        {
-            get; private set;
-        }
-
-        public async void LoadReceivedQueries(object p)
+        private async void LoadReceivedQueries()
         {
             IsLoading = true;
             try
             {
-                var itemsResult = await App.GetQueringService().GetReceivedQueries();
+                var itemsResult = await App.GetQueriesService().GetReceivedQueries();
                 ReceivedQueries = new ObservableCollection<Query>(itemsResult);
             }
             catch (Exception ex)
