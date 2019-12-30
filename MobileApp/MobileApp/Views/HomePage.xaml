@@ -14,7 +14,7 @@
     </TabbedPage.Resources>
 
     <TabbedPage.Children>
-        <ContentPage Title="Submitted Queries">
+        <ContentPage Title="Submitted Enquiries">
 
             <StackLayout Orientation="Vertical" VerticalOptions="Start">
                 <ActivityIndicator  HorizontalOptions="CenterAndExpand">
@@ -56,7 +56,7 @@
                 <Button x:Name="NewQueryButton" Clicked="NewQueryButton_Clicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Create New Query"/>
             </StackLayout>
         </ContentPage>
-        <ContentPage Title="Received Queries">
+        <ContentPage Title="Received Enquiries">
             <StackLayout Orientation="Vertical" VerticalOptions="Start">
                 <ListView ItemsSource="{Binding ReceivedQueries}" HasUnevenRows="true" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshReceivedQueries}" IsRefreshing="{Binding IsLoading}">
                     <ListView.ItemTemplate>

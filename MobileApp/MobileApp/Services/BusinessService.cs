@@ -22,7 +22,7 @@ namespace MobileApp.Services
         public async Task<bool> ValidateBusinessAsync(string businessNumber)
         {
             var businesses = await _repository.GetAll();
-            return businesses.Any(b=>b.RegistrationNumber == businessNumber);
+            return !businesses.Any(b=>b.RegistrationNumber == businessNumber);
         }
     }
 }

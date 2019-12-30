@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using MobileApp.Repositories;
 using MobileApp.Services;
 using MobileApp.Views;
 using Xamarin.Forms;
@@ -16,6 +17,10 @@ namespace MobileApp
             //var mobileClient = new MobileServiceClient("http://localhost/MobileAppBackend");
             _queriesService = new MockQueriesService();
             _userService = new MockUserService();
+
+            var businessRepository = new BusinessRepository();
+            _businessService = new BusinessService(businessRepository);
+
             InitializeComponent();
             var userProfileCreated = false;
 
